@@ -8,16 +8,13 @@ var Header = React.createClass({
       <header>
         <div className="sm-flex center nowrap">
           <div className="flex-auto">
-            <Link to="/" className="btn block animated bounceInLeft">Index</Link>
+            <Link to="/" className="btn block animated bounceInLeft">Home Sweet Home</Link>
           </div>
           <div className="flex-auto">
             <Link to="/about" className="btn block animated bounceInLeft">About</Link>
           </div>
           <div className="flex-auto">
-            <Link to="/" className="btn block animated bounceInDown">Contact</Link>
-          </div>
-          <div className="flex-auto">
-            <Link to="/" className="btn block animated bounceInRight">Follow me</Link>
+            <Link to="/contact" className="btn block animated bounceInDown">Contact Me</Link>
           </div>
         </div>
       </header>

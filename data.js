@@ -2,6 +2,7 @@ module.exports = {
   title:"Domenico Solazzo",
   routes: [
     '/',
-    '/about'
+    '/about',
+    '/contact'
   ]
 }
