@@ -5,6 +5,8 @@ var Index = React.createClass({
     return (
       <main>
         Index component
+        <br />
+        <Carousel />
       </main>
     );
   }

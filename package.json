@@ -23,7 +23,10 @@
     "url": "https://github.com/domenicosolazzo/domenicosolazzo.github.io/issues"
   },
   "homepage": "https://github.com/domenicosolazzo/domenicosolazzo.github.io#readme",
-  "dependencies": {},
+  "dependencies": {
+    "react-swipe": "^2.3.0",
+    "swipe-js-iso": "^2.0.1"
+  },
   "devDependencies": {
     "basscss": "^7.0.3",
     "css-loader": "^0.16.0",
