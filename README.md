@@ -1,11 +1,12 @@
-# domenicosolazzo.github.io
+## Personal site on github
+Site: domenicosolazzo.github.io
 Working in progress!
 
-# Development
+### Development
    npm install
    npm start
 
-# Deployment
+## Deployment
 How to create a new version of the site
    npm run webpack
    git add .
