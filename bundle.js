@@ -23751,6 +23751,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Carousel = React.createClass({displayName: "Carousel",
 	    render: function () {
 	        return (
+	          
 	            React.createElement(ReactSwipe, {
 	                continuous: true
 	            }, 
