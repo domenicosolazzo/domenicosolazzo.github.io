@@ -4,6 +4,7 @@ var ReactSwipe = require('react-swipe');
 var Carousel = React.createClass({
     render: function () {
         return (
+          
             <ReactSwipe
                 continuous={true}
             >
