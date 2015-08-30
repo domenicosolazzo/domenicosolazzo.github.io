@@ -23571,11 +23571,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Root = __webpack_require__(197);
 	var Index = __webpack_require__(201);
 	var About = __webpack_require__(202);
+	var Contact = __webpack_require__(203);
 
 	var Routes = (
 	  React.createElement(Route, {handler: Root, path: "/"}, 
 	    React.createElement(DefaultRoute, {handler: Index}), 
-	    React.createElement(Route, {path: "/about", handler: About})
+	    React.createElement(Route, {path: "/about", handler: About}), 
+	    React.createElement(Route, {path: "/contact", handler: Contact})
 	  )
 	);
 
@@ -23647,16 +23649,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      React.createElement("header", null, 
 	        React.createElement("div", {className: "sm-flex center nowrap"}, 
 	          React.createElement("div", {className: "flex-auto"}, 
-	            React.createElement(Link, {to: "/", className: "btn block animated bounceInLeft"}, "Index")
+	            React.createElement(Link, {to: "/", className: "btn block animated bounceInLeft"}, "Home Sweet Home")
 	          ), 
 	          React.createElement("div", {className: "flex-auto"}, 
 	            React.createElement(Link, {to: "/about", className: "btn block animated bounceInLeft"}, "About")
 	          ), 
 	          React.createElement("div", {className: "flex-auto"}, 
-	            React.createElement(Link, {to: "/", className: "btn block animated bounceInDown"}, "Contact")
-	          ), 
-	          React.createElement("div", {className: "flex-auto"}, 
-	            React.createElement(Link, {to: "/", className: "btn block animated bounceInRight"}, "Follow me")
+	            React.createElement(Link, {to: "/contact", className: "btn block animated bounceInDown"}, "Contact Me")
 	          )
 	        )
 	      )
@@ -23945,6 +23944,50 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 	module.exports = About;
+
+
+/***/ },
+/* 203 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Contact = React.createClass({displayName: "Contact",
+	  render: function(){
+	    return (
+	      React.createElement("main", null, 
+	        React.createElement("section", {id: "index-title", className: "clearfix border-none"}, 
+	          React.createElement("div", {className: "col col-12"}, 
+	            React.createElement("h1", {className: "animated rubberBand center"}, 
+	              "Call me maybe!"
+	            )
+	          )
+	        ), 
+	        React.createElement("section", {id: "index-code", className: "clearfix border-none"}, 
+	          React.createElement("div", {className: "clearfix border-none"}, 
+	            React.createElement("div", {className: "col col-4 center"}, 
+	              React.createElement("a", {href: "https://twitter.com/domenicosolazzo", target: "_blank"}, 
+	                React.createElement("img", {src: "../assets/social/twitter.png", alt: "Twitter"})
+	              )
+	            ), 
+	            React.createElement("div", {className: "col col-4 center"}, 
+	              React.createElement("a", {href: "https://no.linkedin.com/in/solazzo", target: "_blank"}, 
+	                React.createElement("img", {src: "../assets/social/linkedin.png", alt: "Linkedin"})
+	              )
+	            ), 
+	            React.createElement("div", {className: "col col-4 center"}, 
+	              React.createElement("a", {target: "_blank", href: "http://www.google.com/recaptcha/mailhide/d?k=01RcpOnIvUVdH41U6Prab5lg==&c=_0kkedOZRdbLr__Ki5tT8BJIRr_wHDXnyd4rNO8Hhcs=", onclick: "window.open('http://www.google.com/recaptcha/mailhide/d?k\\07501RcpOnIvUVdH41U6Prab5lg\\75\\75\\46c\\75_0kkedOZRdbLr__Ki5tT8BJIRr_wHDXnyd4rNO8Hhcs\\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;", title: "Reveal this e-mail address"
+	                }, React.createElement("img", {src: "../assets/social/email.png", alt: "Email"})
+	              )
+	            )
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Contact;
 
 
 /***/ }
