@@ -23747,8 +23747,47 @@ return /******/ (function(modules) { // webpackBootstrap
 	  render: function(){
 	    return (
 	      React.createElement("main", null, 
-	        React.createElement("section", {id: "index-title"}, 
-	          React.createElement("h1", {className: "animated rubberBand center"}, "Domenico Solazzo")
+	        React.createElement("section", {id: "index-title", className: "clearfix border-none"}, 
+	          React.createElement("div", {className: "col col-12"}, 
+	            React.createElement("h1", {className: "animated rubberBand center"}, "Domenico Solazzo")
+	          )
+	        ), 
+	        React.createElement("section", {id: "index-code", className: "clearfix border-top"}, 
+	          React.createElement("h3", {className: "animated bounceInLeft center"}, "Code")
+	        ), 
+	        React.createElement("section", {id: "index-design", className: "clearfix border-top"}, 
+	          React.createElement("div", {className: "clearfix border-none"}, 
+	            React.createElement("div", {className: "col col-12"}, 
+	              React.createElement("h3", {className: "animated bounceInRight center"}, "Design")
+	            )
+	          ), 
+	          React.createElement("div", {className: "clearfix border-none"}, 
+	            React.createElement("div", {className: "col col-12"}, 
+	              React.createElement("p", null, 
+	                "In my spare time, I like to learn about design." + " " +
+	                "I am really far for being proficient at it but below you can find some" + " " +
+	                "of my current works. If you like what you see and you have a Dribbble invite, please invite me!"
+	              )
+	            )
+	          ), 
+	          React.createElement("div", {className: "clearfix border-none"}, 
+
+	            React.createElement("div", {className: "col col-6"}, 
+	              React.createElement("img", {className: "circle", src: "https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/gauge/Exports/Gauge.png"})
+	            ), 
+	            React.createElement("div", {className: "col col-6"}, 
+	              React.createElement("img", {className: "circle", src: "https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/switch/Exports/WithoutBackground/Colorful%20Switch.png"})
+	            )
+
+	          ), 
+	          React.createElement("div", {className: "clearfix border-none"}, 
+	            React.createElement("div", {className: "col col-6"}, 
+	              React.createElement("img", {className: "circle", src: "https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/calendar/Exports/WithoutBackground/Calendar.png"})
+	            ), 
+	            React.createElement("div", {className: "col col-6"}, 
+	              React.createElement("img", {className: "circle", src: "https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/todo/Exports/iTunesArtwork-512.png"})
+	            )
+	          )
 	        )
 	      )
 	    );
