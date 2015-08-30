@@ -25,6 +25,9 @@
   "homepage": "https://github.com/domenicosolazzo/domenicosolazzo.github.io#readme",
   "dependencies": {},
   "devDependencies": {
+    "basscss": "^7.0.3",
+    "css-loader": "^0.16.0",
+    "cssnext-loader": "^1.0.1",
     "jsx-loader": "^0.13.2",
     "react": "^0.13.3",
     "react-router": "^0.13.3",
