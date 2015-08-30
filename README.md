@@ -1,6 +1,8 @@
 ## Personal site on github
 Site: domenicosolazzo.github.io
+
 Working in progress!
+
 
 ### Development
    npm install
