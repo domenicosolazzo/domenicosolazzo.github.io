@@ -1,6 +1,7 @@
 var React = require('react');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
+var Header = require('./Header');
 
 var Root = React.createClass({
   render: function(){
@@ -14,6 +15,7 @@ var Root = React.createClass({
           <title>{this.props.title}</title>
         </head>
         <body>
+          <Header />
           <RouteHandler {...this.props} />
           <script
             id='initial-props'
