@@ -10,9 +10,10 @@ Working in progress!
 
 ## Deployment
 How to create a new version of the site
-   npm run webpack
-   git add .
-   git commit -m "<your awesome message>"
-   git push origin master
+
+    npm run webpack
+    git add .
+    git commit -m "<your awesome message>"
+    git push origin master
   
 
