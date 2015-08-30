@@ -5,7 +5,7 @@ var Carousel = React.createClass({
     render: function () {
         return (
             <ReactSwipe
-                continuous={false}
+                continuous={true}
             >
                 <div>'PANE 1'</div>
                 <div>'PANE 2'</div>

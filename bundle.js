@@ -23752,7 +23752,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    render: function () {
 	        return (
 	            React.createElement(ReactSwipe, {
-	                continuous: false
+	                continuous: true
 	            }, 
 	                React.createElement("div", null, "'PANE 1'"), 
 	                React.createElement("div", null, "'PANE 2'"), 
