@@ -5,8 +5,10 @@ Working in progress!
 
 
 ### Development
-   npm install
-   npm start
+How to install and start the project
+
+    npm install
+    npm start
 
 ## Deployment
 How to create a new version of the site
