@@ -21597,7 +21597,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *       <Route name="about" handler={About}/>
 	 *     </Route>
 	 *   ];
-	 *   
+	 *
 	 *   Router.run(routes, function (Handler) {
 	 *     React.render(<Handler/>, document.body);
 	 *   });
@@ -23524,9 +23524,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *   Router.run(routes, function (Handler) {
 	 *     React.render(<Handler/>, document.body);
 	 *   });
-	 * 
+	 *
 	 * Using HTML5 history and a custom "cursor" prop:
-	 * 
+	 *
 	 *   Router.run(routes, Router.HistoryLocation, function (Handler) {
 	 *     React.render(<Handler cursor={cursor}/>, document.body);
 	 *   });
@@ -23570,11 +23570,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	var DefaultRoute = Router.DefaultRoute;
 	var Root = __webpack_require__(197);
 	var Index = __webpack_require__(201);
-	var About = __webpack_require__(206);
+	var About = __webpack_require__(209);
 
 	var Routes = (
-	  React.createElement(Route, {handler: Root, path: "/"}, 
-	    React.createElement(DefaultRoute, {handler: Index}), 
+	  React.createElement(Route, {handler: Root, path: "/"},
+	    React.createElement(DefaultRoute, {handler: Index}),
 	    React.createElement(Route, {path: "/about", handler: About})
 	  )
 	);
@@ -23599,18 +23599,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    return (
-	      React.createElement("html", null, 
-	        React.createElement("head", null, 
-	          React.createElement("title", null, this.props.title), 
+	      React.createElement("html", null,
+	        React.createElement("head", null,
+	          React.createElement("title", null, this.props.title),
 	          React.createElement("style", {dangerouslySetInnerHTML: { __html: css}})
-	        ), 
-	        React.createElement("body", {className: "p2"}, 
-	          React.createElement(Header, null), 
-	          React.createElement(RouteHandler, React.__spread({},  this.props)), 
+	        ),
+	        React.createElement("body", {className: "p2"},
+	          React.createElement(Header, null),
+	          React.createElement(RouteHandler, React.__spread({},  this.props)),
 	          React.createElement("script", {
-	            id: "initial-props", 
-	            type: "application/json", 
-	            dangerouslySetInnerHTML: initialProps}), 
+	            id: "initial-props",
+	            type: "application/json",
+	            dangerouslySetInnerHTML: initialProps}),
 	          React.createElement("script", {src: "bundle.js"})
 	        )
 	      )
@@ -23638,8 +23638,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Header = React.createClass({displayName: "Header",
 	  render: function () {
 	    return (
-	      React.createElement("header", null, 
-	        React.createElement(Link, {to: "/"}, "Index"), 
+	      React.createElement("header", null,
+	        React.createElement(Link, {to: "/"}, "Index"),
 	        React.createElement(Link, {to: "/about"}, "About")
 	      )
 	    );
@@ -23729,9 +23729,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Index = React.createClass({displayName: "Index",
 	  render: function(){
 	    return (
-	      React.createElement("main", null, 
-	        "Index component", 
-	        React.createElement("br", null), 
+	      React.createElement("main", null,
+	        "Index component",
+	        React.createElement("br", null),
 	        React.createElement(Carousel, null)
 	      )
 	    );
@@ -23746,731 +23746,855 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var ReactSwipe = __webpack_require__(203);
+	var Carousel = __webpack_require__(203);
+	var Ease = __webpack_require__(208);
+	var images = [
+	    'http://s7.postimg.org/dbamgegu3/zen8.jpg',
+	    'http://s21.postimg.org/er8b066p3/zen2.jpg',
+	    'http://s4.postimg.org/6mbbcgmwd/zen1.jpg',
+	    'http://s30.postimg.org/x3cgpdtgx/zen3.jpg',
+	    'http://s21.postimg.org/h1estw95z/zen4.jpg',
+	    'http://s8.postimg.org/upypfrk8l/zen5.jpg',
+	    'http://s7.postimg.org/goiv34aez/zen6.jpg',
+	    'http://s30.postimg.org/n9zuqbgq9/zen7.jpg',
+	    'http://s12.postimg.org/9kw5b42d9/zen9.jpg',
+	    'http://s13.postimg.org/vwf92qbl3/zen10.jpg',
+	    'http://s4.postimg.org/anf2w9rzh/zen11.jpg',
+	    'http://s17.postimg.org/gpbiwdsu7/zen12.jpg',
+	    'http://s9.postimg.org/n5uuedw3z/zen13.jpg',
+	    'http://s9.postimg.org/x6zonp973/zen14.jpg',
+	    'http://s2.postimg.org/r0vsbv8op/zen15.jpg',
+	    'http://s21.postimg.org/szu5d0h2f/zen16.jpg',
+	    'http://s15.postimg.org/xi59nxox7/zen17.jpg',
+	    'http://s8.postimg.org/zexjdajw5/zen18.jpg',
+	    'http://s24.postimg.org/st2ukrfz9/zen19.jpg',
+	    'http://s15.postimg.org/40kb5u63v/zen20.jpg'
+	];
 
-	var Carousel = React.createClass({displayName: "Carousel",
+	var MainView = React.createClass({displayName: "MainView",
+	    getInitialState: function () {
+	        return {
+	            images: images.slice(0, 6),
+	            width: 400,
+	            layout: 'prism',
+	            ease: 'linear',
+	            duration: 400
+	        };
+	    },
+	    componentWillMount: function () {
+	        this.onSides = function (event) {
+	            this.setState( {images: images.slice(0, event.target.value) });
+	        }.bind(this);
+	        this.onLayout = function (event) {
+	            this.setState({layout: event.target.value});
+	        }.bind(this);
+	        this.onDuration = function (event) {
+	            this.setState({duration: parseInt(event.target.value) });
+	        }.bind(this);
+	        this.onEase = function (event) {
+	            this.setState({ease:  event.target.value});
+	        }.bind(this);
+	    },
 	    render: function () {
+	        var easeList = Object.keys(Ease).map(function (d) {
+	            return (React.createElement("option", {key: d, value: d}, d))
+	        });
 	        return (
-	          
-	            React.createElement(ReactSwipe, {
-	                continuous: true
-	            }, 
-	                React.createElement("div", null, "'PANE 1'"), 
-	                React.createElement("div", null, "'PANE 2'"), 
-	                React.createElement("div", null, "'PANE 3'")
+	            React.createElement("div", null,
+	                React.createElement(Carousel, {width: this.state.width,
+	                          images: this.state.images,
+	                          ease: this.state.ease,
+	                          duration: this.state.duration,
+	                          layout: this.state.layout}),
+	                React.createElement("table", null,
+	                    React.createElement("tr", null,
+	                        React.createElement("td", null,
+	                            React.createElement("label", {htmlFor: "panel-count"}, "Panels")
+	                        ),
+	                        React.createElement("td", null,
+	                            React.createElement("input", {type: "range", id: "panel-count",
+	                                   value: this.state.images.length, min: "3", max: "20",
+	                                   onChange: this.onSides})
+	                        ),
+	                        React.createElement("td", null, React.createElement("span", null, this.state.sides))
+	                    ),
+	                    React.createElement("tr", null,
+	                        React.createElement("td", null,
+	                            "Layout"
+	                        ),
+	                        React.createElement("td", null,
+	                            React.createElement("select", {onChange: this.onLayout, value: this.state.layout},
+	                                React.createElement("option", {value: "prism"}, "prism"),
+	                                React.createElement("option", {value: "classic"}, "classic")
+	                            )
+	                        )
+	                    ),
+	                    React.createElement("tr", null,
+	                        React.createElement("td", null,
+	                            React.createElement("label", {htmlFor: "duration"}, "Duration")
+	                        ),
+	                        React.createElement("td", null,
+	                            React.createElement("input", {type: "range", id: "duration",
+	                                   value: this.state.duration, min: "0", step: "250", max: "1500",
+	                                   onChange: this.onDuration})
+	                        ),
+	                        React.createElement("td", null,
+	                            React.createElement("span", null, this.state.duration)
+	                        )
+	                    ),
+	                    React.createElement("tr", null,
+	                        React.createElement("td", null,
+	                            "Ease"
+	                        ),
+	                        React.createElement("td", null,
+	                            React.createElement("select", {onChange: this.onEase, value: this.state.ease},
+	                                easeList
+	                            )
+	                        )
+	                    )
+	                )
 	            )
 	        );
 	    }
 	});
 
-	module.exports = Carousel;
+	module.exports = MainView;
 
 
 /***/ },
 /* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
-	(function (root, factory) {
-	  if (typeof module !== 'undefined' && module.exports) {
-	    module.exports = factory(
-	      __webpack_require__(1),
-	      __webpack_require__(204),
-	      __webpack_require__(205)
-	    );
-	  } else {
-	    root.ReactSwipe = factory(
-	      root.React,
-	      root.Swipe,
-	      root.objectAssign
-	    );
-	  }
-	})(this, function (React, Swipe, objectAssign) {
-	  var styles = {
-	    container: {
-	      overflow: 'hidden',
-	      visibility: 'hidden',
-	      position: 'relative'
-	    },
+	'use strict';
+	var React = __webpack_require__(1);
 
-	    wrapper: {
-	      overflow: 'hidden',
-	      position: 'relative'
-	    },
+	var Util = __webpack_require__(204);
+	var Layout = __webpack_require__(205);
+	var Depot = __webpack_require__(206);
 
-	    child: {
-	      float: 'left',
-	      width: '100%',
-	      position: 'relative'
+	var Carousel = React.createClass({
+	    displayName: 'Carousel',
+
+	    getInitialState: function getInitialState() {
+	        return {
+	            images: this.props.images,
+	            figures: Layout[this.props.layout].figures(this.props.width, this.props.images, 0),
+	            rotationY: 0
+	        };
+	    },
+	    componentWillMount: function componentWillMount() {
+	        this.depot = Depot(this.getInitialState(), this.props, this.setState.bind(this));
+	        this.onRotate = this.depot.onRotate.bind(this);
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	        this.depot.onNextProps(nextProps);
+	    },
+	    render: function render() {
+	        var angle = 2 * Math.PI / this.state.figures.length;
+	        var translateZ = -Layout[this.props.layout].distance(this.props.width, this.state.figures.length);
+	        var figures = this.state.figures.map(function (d, i) {
+	            return React.createElement(
+	                'figure',
+	                { key: i, style: Util.figureStyle(d) },
+	                React.createElement('img', { src: d.image, alt: i, height: '100%', width: '100%' })
+	            );
+	        });
+	        return React.createElement(
+	            'section',
+	            { className: 'react-3d-carousel' },
+	            React.createElement(
+	                'div',
+	                { className: 'carousel',
+	                    style: { transform: 'translateZ(' + translateZ + 'px)' } },
+	                figures
+	            ),
+	            React.createElement('div', { className: 'prev', onClick: Util.partial(this.onRotate, +angle) }),
+	            React.createElement('div', { className: 'next', onClick: Util.partial(this.onRotate, -angle) })
+	        );
 	    }
-	  };
-
-	  var ReactSwipe = React.createClass({
-	    // https://github.com/thebird/Swipe#config-options
-	    propTypes: {
-	      startSlide      : React.PropTypes.number,
-	      slideToIndex    : React.PropTypes.number,
-	      shouldUpdate    : React.PropTypes.func,
-	      speed           : React.PropTypes.number,
-	      auto            : React.PropTypes.number,
-	      continuous      : React.PropTypes.bool,
-	      disableScroll   : React.PropTypes.bool,
-	      stopPropagation : React.PropTypes.bool,
-	      callback        : React.PropTypes.func,
-	      transitionEnd   : React.PropTypes.func
-	    },
-
-	    componentDidMount: function () {
-	      if (this.isMounted()) {
-	        this.swipe = Swipe(React.findDOMNode(this), this.props);
-	      }
-	    },
-
-	    componentDidUpdate: function () {
-	      if (this.props.slideToIndex || this.props.slideToIndex === 0) {
-	        this.swipe.slide(this.props.slideToIndex);
-	      }
-	    },
-
-	    componentWillUnmount: function () {
-	      this.swipe.kill();
-	      delete this.swipe;
-	    },
-
-	    shouldComponentUpdate: function (nextProps) {
-	      return (
-	        (this.props.slideToIndex !== nextProps.slideToIndex) ||
-	        (typeof this.props.shouldUpdate !== 'undefined') && this.props.shouldUpdate(nextProps)
-	      );
-	    },
-
-	    render: function() {
-	      return React.createElement('div', React.__spread({}, this.props, {style: styles.container}),
-	        React.createElement('div', {style: styles.wrapper},
-	          React.Children.map(this.props.children, function (child,index) {
-	            return React.cloneElement(child, {
-	              ref: child.props.ref,
-	              key: child.props.key,
-	              style: child.props.style ? objectAssign(child.props.style,styles.child) : styles.child
-	            });
-	          })
-	        )
-	      );
-	    }
-	  });
-
-	  return ReactSwipe;
 	});
-
+	module.exports = Carousel;
 
 /***/ },
 /* 204 */
 /***/ function(module, exports) {
 
-	/*
-	 * Swipe 2.0.0
-	 * Brad Birdsall
-	 * https://github.com/thebird/Swipe
-	 * Copyright 2013-2015, MIT License
-	 *
-	*/
+	'use strict';
 
-	(function (root, factory) {
-	    if (typeof module !== 'undefined' && module.exports) {
-	        module.exports = factory();
-	    } else {
-	        root.Swipe = factory();
-	    }
-	}(this, function () {
-	  'use strict';
+	var _exports = module.exports = {};
 
-	  return function Swipe (container, options) {
-	    // utilities
-	    var noop = function() {}; // simple no operation function
-	    var offloadFn = function(fn) { setTimeout(fn || noop, 0); }; // offload a functions execution
-
-	    // check browser capabilities
-	    var browser = {
-	      addEventListener: !!window.addEventListener,
-	      touch: ('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch,
-	      transitions: (function(temp) {
-	        var props = ['transitionProperty', 'WebkitTransition', 'MozTransition', 'OTransition', 'msTransition'];
-	        for ( var i in props ) if (temp.style[ props[i] ] !== undefined) return true;
-	        return false;
-	      })(document.createElement('swipe'))
-	    };
-
-	    // quit if no root element
-	    if (!container) return;
-	    var element = container.children[0];
-	    var slides, slidePos, width, length;
-	    options = options || {};
-	    var index = parseInt(options.startSlide, 10) || 0;
-	    var speed = options.speed || 300;
-	    options.continuous = options.continuous !== undefined ? options.continuous : true;
-
-	    function setup() {
-
-	      // cache slides
-	      slides = element.children;
-	      length = slides.length;
-
-	      // set continuous to false if only one slide
-	      if (slides.length < 2) options.continuous = false;
-
-	      //special case if two slides
-	      if (browser.transitions && options.continuous && slides.length < 3) {
-	        element.appendChild(slides[0].cloneNode(true));
-	        element.appendChild(element.children[1].cloneNode(true));
-	        slides = element.children;
-	      }
-
-	      // create an array to store current positions of each slide
-	      slidePos = new Array(slides.length);
-
-	      // determine width of each slide
-	      width = container.getBoundingClientRect().width || container.offsetWidth;
-
-	      element.style.width = (slides.length * width) + 'px';
-
-	      // stack elements
-	      var pos = slides.length;
-	      while(pos--) {
-
-	        var slide = slides[pos];
-
-	        slide.style.width = width + 'px';
-	        slide.setAttribute('data-index', pos);
-
-	        if (browser.transitions) {
-	          slide.style.left = (pos * -width) + 'px';
-	          move(pos, index > pos ? -width : (index < pos ? width : 0), 0);
-	        }
-
-	      }
-
-	      // reposition elements before and after index
-	      if (options.continuous && browser.transitions) {
-	        move(circle(index-1), -width, 0);
-	        move(circle(index+1), width, 0);
-	      }
-
-	      if (!browser.transitions) element.style.left = (index * -width) + 'px';
-
-	      container.style.visibility = 'visible';
-
-	    }
-
-	    function prev() {
-
-	      if (options.continuous) slide(index-1);
-	      else if (index) slide(index-1);
-
-	    }
-
-	    function next() {
-
-	      if (options.continuous) slide(index+1);
-	      else if (index < slides.length - 1) slide(index+1);
-
-	    }
-
-	    function circle(index) {
-
-	      // a simple positive modulo using slides.length
-	      return (slides.length + (index % slides.length)) % slides.length;
-
-	    }
-
-	    function slide(to, slideSpeed) {
-
-	      // do nothing if already on requested slide
-	      if (index == to) return;
-
-	      if (browser.transitions) {
-
-	        var direction = Math.abs(index-to) / (index-to); // 1: backward, -1: forward
-
-	        // get the actual position of the slide
-	        if (options.continuous) {
-	          var natural_direction = direction;
-	          direction = -slidePos[circle(to)] / width;
-
-	          // if going forward but to < index, use to = slides.length + to
-	          // if going backward but to > index, use to = -slides.length + to
-	          if (direction !== natural_direction) to =  -direction * slides.length + to;
-
-	        }
-
-	        var diff = Math.abs(index-to) - 1;
-
-	        // move all the slides between index and to in the right direction
-	        while (diff--) move( circle((to > index ? to : index) - diff - 1), width * direction, 0);
-
-	        to = circle(to);
-
-	        move(index, width * direction, slideSpeed || speed);
-	        move(to, 0, slideSpeed || speed);
-
-	        if (options.continuous) move(circle(to - direction), -(width * direction), 0); // we need to get the next in place
-
-	      } else {
-
-	        to = circle(to);
-	        animate(index * -width, to * -width, slideSpeed || speed);
-	        //no fallback for a circular continuous if the browser does not accept transitions
-	      }
-
-	      index = to;
-	      offloadFn(options.callback && options.callback(index, slides[index]));
-	    }
-
-	    function move(index, dist, speed) {
-
-	      translate(index, dist, speed);
-	      slidePos[index] = dist;
-
-	    }
-
-	    function translate(index, dist, speed) {
-
-	      var slide = slides[index];
-	      var style = slide && slide.style;
-
-	      if (!style) return;
-
-	      style.webkitTransitionDuration =
-	      style.MozTransitionDuration =
-	      style.msTransitionDuration =
-	      style.OTransitionDuration =
-	      style.transitionDuration = speed + 'ms';
-
-	      style.webkitTransform = 'translate(' + dist + 'px,0)' + 'translateZ(0)';
-	      style.msTransform =
-	      style.MozTransform =
-	      style.OTransform = 'translateX(' + dist + 'px)';
-
-	    }
-
-	    function animate(from, to, speed) {
-
-	      // if not an animation, just reposition
-	      if (!speed) {
-
-	        element.style.left = to + 'px';
-	        return;
-
-	      }
-
-	      var start = +new Date();
-
-	      var timer = setInterval(function() {
-
-	        var timeElap = +new Date() - start;
-
-	        if (timeElap > speed) {
-
-	          element.style.left = to + 'px';
-
-	          if (delay) begin();
-
-	          options.transitionEnd && options.transitionEnd.call(event, index, slides[index]);
-
-	          clearInterval(timer);
-	          return;
-
-	        }
-
-	        element.style.left = (( (to - from) * (Math.floor((timeElap / speed) * 100) / 100) ) + from) + 'px';
-
-	      }, 4);
-
-	    }
-
-	    // setup auto slideshow
-	    var delay = options.auto || 0;
-	    var interval;
-
-	    function begin() {
-
-	      interval = setTimeout(next, delay);
-
-	    }
-
-	    function stop() {
-
-	      delay = 0;
-	      clearTimeout(interval);
-
-	    }
-
-
-	    // setup initial vars
-	    var start = {};
-	    var delta = {};
-	    var isScrolling;
-
-	    // setup event capturing
-	    var events = {
-
-	      handleEvent: function(event) {
-
-	        switch (event.type) {
-	          case 'touchstart': this.start(event); break;
-	          case 'touchmove': this.move(event); break;
-	          case 'touchend': offloadFn(this.end(event)); break;
-	          case 'webkitTransitionEnd':
-	          case 'msTransitionEnd':
-	          case 'oTransitionEnd':
-	          case 'otransitionend':
-	          case 'transitionend': offloadFn(this.transitionEnd(event)); break;
-	          case 'resize': offloadFn(setup); break;
-	        }
-
-	        if (options.stopPropagation) event.stopPropagation();
-
-	      },
-	      start: function(event) {
-
-	        var touches = event.touches[0];
-
-	        // measure start values
-	        start = {
-
-	          // get initial touch coords
-	          x: touches.pageX,
-	          y: touches.pageY,
-
-	          // store time to determine touch duration
-	          time: +new Date()
-
-	        };
-
-	        // used for testing first move event
-	        isScrolling = undefined;
-
-	        // reset delta and end measurements
-	        delta = {};
-
-	        // attach touchmove and touchend listeners
-	        element.addEventListener('touchmove', this, false);
-	        element.addEventListener('touchend', this, false);
-
-	      },
-	      move: function(event) {
-
-	        // ensure swiping with one touch and not pinching
-	        if ( event.touches.length > 1 || event.scale && event.scale !== 1) return;
-
-	        if (options.disableScroll) event.preventDefault();
-
-	        var touches = event.touches[0];
-
-	        // measure change in x and y
-	        delta = {
-	          x: touches.pageX - start.x,
-	          y: touches.pageY - start.y
-	        };
-
-	        // determine if scrolling test has run - one time test
-	        if ( typeof isScrolling == 'undefined') {
-	          isScrolling = !!( isScrolling || Math.abs(delta.x) < Math.abs(delta.y) );
-	        }
-
-	        // if user is not trying to scroll vertically
-	        if (!isScrolling) {
-
-	          // prevent native scrolling
-	          event.preventDefault();
-
-	          // stop slideshow
-	          stop();
-
-	          // increase resistance if first or last slide
-	          if (options.continuous) { // we don't add resistance at the end
-
-	            translate(circle(index-1), delta.x + slidePos[circle(index-1)], 0);
-	            translate(index, delta.x + slidePos[index], 0);
-	            translate(circle(index+1), delta.x + slidePos[circle(index+1)], 0);
-
-	          } else {
-
-	            delta.x =
-	              delta.x /
-	                ( (!index && delta.x > 0 ||         // if first slide and sliding left
-	                  index == slides.length - 1 &&     // or if last slide and sliding right
-	                  delta.x < 0                       // and if sliding at all
-	                ) ?
-	                ( Math.abs(delta.x) / width + 1 )      // determine resistance level
-	                : 1 );                                 // no resistance if false
-
-	            // translate 1:1
-	            translate(index-1, delta.x + slidePos[index-1], 0);
-	            translate(index, delta.x + slidePos[index], 0);
-	            translate(index+1, delta.x + slidePos[index+1], 0);
-	          }
-
-	        }
-
-	      },
-	      end: function(event) {
-
-	        // measure duration
-	        var duration = +new Date() - start.time;
-
-	        // determine if slide attempt triggers next/prev slide
-	        var isValidSlide =
-	              Number(duration) < 250 &&         // if slide duration is less than 250ms
-	              Math.abs(delta.x) > 20 ||         // and if slide amt is greater than 20px
-	              Math.abs(delta.x) > width/2;      // or if slide amt is greater than half the width
-
-	        // determine if slide attempt is past start and end
-	        var isPastBounds =
-	              !index && delta.x > 0 ||                      // if first slide and slide amt is greater than 0
-	              index == slides.length - 1 && delta.x < 0;    // or if last slide and slide amt is less than 0
-
-	        if (options.continuous) isPastBounds = false;
-
-	        // determine direction of swipe (true:right, false:left)
-	        var direction = delta.x < 0;
-
-	        // if not scrolling vertically
-	        if (!isScrolling) {
-
-	          if (isValidSlide && !isPastBounds) {
-
-	            if (direction) {
-
-	              if (options.continuous) { // we need to get the next in this direction in place
-
-	                move(circle(index-1), -width, 0);
-	                move(circle(index+2), width, 0);
-
-	              } else {
-	                move(index-1, -width, 0);
-	              }
-
-	              move(index, slidePos[index]-width, speed);
-	              move(circle(index+1), slidePos[circle(index+1)]-width, speed);
-	              index = circle(index+1);
-
-	            } else {
-	              if (options.continuous) { // we need to get the next in this direction in place
-
-	                move(circle(index+1), width, 0);
-	                move(circle(index-2), -width, 0);
-
-	              } else {
-	                move(index+1, width, 0);
-	              }
-
-	              move(index, slidePos[index]+width, speed);
-	              move(circle(index-1), slidePos[circle(index-1)]+width, speed);
-	              index = circle(index-1);
-
-	            }
-
-	            options.callback && options.callback(index, slides[index]);
-
-	          } else {
-
-	            if (options.continuous) {
-
-	              move(circle(index-1), -width, speed);
-	              move(index, 0, speed);
-	              move(circle(index+1), width, speed);
-
-	            } else {
-
-	              move(index-1, -width, speed);
-	              move(index, 0, speed);
-	              move(index+1, width, speed);
-	            }
-
-	          }
-
-	        }
-
-	        // kill touchmove and touchend event listeners until touchstart called again
-	        element.removeEventListener('touchmove', events, false);
-	        element.removeEventListener('touchend', events, false);
-
-	      },
-	      transitionEnd: function(event) {
-
-	        if (parseInt(event.target.getAttribute('data-index'), 10) == index) {
-
-	          if (delay) begin();
-
-	          options.transitionEnd && options.transitionEnd.call(event, index, slides[index]);
-
-	        }
-
-	      }
-
-	    };
-
-	    // trigger setup
-	    setup();
-
-	    // start auto slideshow if applicable
-	    if (delay) begin();
-
-
-	    // add event listeners
-	    if (browser.addEventListener) {
-
-	      // set touchstart event on element
-	      if (browser.touch) element.addEventListener('touchstart', events, false);
-
-	      if (browser.transitions) {
-	        element.addEventListener('webkitTransitionEnd', events, false);
-	        element.addEventListener('msTransitionEnd', events, false);
-	        element.addEventListener('oTransitionEnd', events, false);
-	        element.addEventListener('otransitionend', events, false);
-	        element.addEventListener('transitionend', events, false);
-	      }
-
-	      // set resize event on window
-	      window.addEventListener('resize', events, false);
-
-	    } else {
-
-	      window.onresize = function () { setup(); }; // to play nice with old IE
-
-	    }
-
-	    // expose the Swipe API
+	_exports.figureStyle = function figureStyle(d) {
+	    var translateX = Object.hasOwnProperty.call(d, 'translateX') ? d.translateX : 0;
 	    return {
-	      setup: function() {
-
-	        setup();
-
-	      },
-	      slide: function(to, speed) {
-
-	        // cancel slideshow
-	        stop();
-
-	        slide(to, speed);
-
-	      },
-	      prev: function() {
-
-	        // cancel slideshow
-	        stop();
-
-	        prev();
-
-	      },
-	      next: function() {
-
-	        // cancel slideshow
-	        stop();
-
-	        next();
-
-	      },
-	      stop: function() {
-
-	        // cancel slideshow
-	        stop();
-
-	      },
-	      getPos: function() {
-
-	        // return current index position
-	        return index;
-
-	      },
-	      getNumSlides: function() {
-
-	        // return total number of slides
-	        return length;
-	      },
-	      kill: function() {
-
-	        // cancel slideshow
-	        stop();
-
-	        // reset element
-	        element.style.width = '';
-	        element.style.left = '';
-
-	        // reset slides
-	        var pos = slides.length;
-	        while(pos--) {
-
-	          var slide = slides[pos];
-	          slide.style.width = '';
-	          slide.style.left = '';
-
-	          if (browser.transitions) translate(pos, 0, 0);
-	        }
-
-	        // removed event listeners
-	        if (browser.addEventListener) {
-
-	          // remove current event listeners
-	          element.removeEventListener('touchstart', events, false);
-	          element.removeEventListener('webkitTransitionEnd', events, false);
-	          element.removeEventListener('msTransitionEnd', events, false);
-	          element.removeEventListener('oTransitionEnd', events, false);
-	          element.removeEventListener('otransitionend', events, false);
-	          element.removeEventListener('transitionend', events, false);
-	          window.removeEventListener('resize', events, false);
-
-	        } else {
-	          window.onresize = null;
-	        }
-	      }
+	        transform: 'rotateY(' + d.rotateY + 'rad) ' + ' translateX(' + translateX + 'px)' + ' translateZ(' + d.translateZ + 'px)',
+	        opacity: d.opacity
 	    };
-	  };
-	}));
+	};
 
+	_exports.partial = function partial(func) {
+	    var args = Array.prototype.slice.call(arguments, 1);
+	    return function () {
+	        return func.apply(this, args.concat(Array.prototype.slice.call(arguments, 0)));
+	    };
+	};
+
+	_exports.range = function range(from, to) {
+	    var res = [];
+	    for (var i = from; i < to; ++i) {
+	        res.push(i);
+	    }
+	    return res;
+	};
+
+	_exports.uniq = function uniq(a) {
+	    var prims = { 'boolean': {}, 'number': {}, 'string': {} },
+	        objs = [];
+	    return a.filter(function (item) {
+	        var type = typeof item;
+	        if (type in prims) return prims[type].hasOwnProperty(item) ? false : prims[type][item] = true;else return objs.indexOf(item) >= 0 ? false : objs.push(item);
+	    });
+	};
+
+	/**
+	 * Merge defaults with user options
+	 * @private
+	 * @param {Object} defaults Default settings
+	 * @param {Object} options User options
+	 * @returns {Object} Merged values of defaults and options
+	 */
+	_exports.merge = function merge(defaults, options) {
+	    var extended = {};
+	    var prop;
+	    for (prop in defaults) {
+	        if (Object.prototype.hasOwnProperty.call(defaults, prop)) {
+	            extended[prop] = defaults[prop];
+	        }
+	    }
+	    for (prop in options) {
+	        if (Object.prototype.hasOwnProperty.call(options, prop)) {
+	            extended[prop] = options[prop];
+	        }
+	    }
+	    return extended;
+	};
+
+	_exports.pluck = function pluck(key, entries) {
+	    return entries.map(function (entry) {
+	        return entry[key];
+	    });
+	};
+
+	_exports.mapObj = function mapObj(fn, obj) {
+	    var res = {};
+	    for (var key in obj) {
+	        if (obj.hasOwnProperty(key)) {
+	            res[key] = fn(obj[key]);
+	        }
+	    }
+	    return res;
+	};
 
 /***/ },
 /* 205 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	function ToObject(val) {
-		if (val == null) {
-			throw new TypeError('Object.assign cannot be called with null or undefined');
-		}
+	var Util = __webpack_require__(204);
 
-		return Object(val);
-	}
+	var _exports = module.exports = {};
 
-	module.exports = Object.assign || function (target, source) {
-		var from;
-		var keys;
-		var to = ToObject(target);
-
-		for (var s = 1; s < arguments.length; s++) {
-			from = arguments[s];
-			keys = Object.keys(Object(from));
-
-			for (var i = 0; i < keys.length; i++) {
-				to[keys[i]] = from[keys[i]];
-			}
-		}
-
-		return to;
+	_exports.prism = {
+	    distance: function apothem(width, sides) {
+	        return Math.ceil(width / (2 * Math.tan(Math.PI / sides)));
+	    },
+	    figures: function figures(width, images, initial) {
+	        var sides = images.length;
+	        var angle = 2 * Math.PI / sides;
+	        var acceptable = Math.round(initial / angle) * angle;
+	        return Util.range(0, sides).map(function (d) {
+	            return {
+	                rotateY: d * angle + acceptable,
+	                translateX: 0,
+	                translateZ: _exports.prism.distance(width, sides),
+	                opacity: 1,
+	                present: true,
+	                key: d,
+	                image: images[d]
+	            };
+	        });
+	    }
 	};
-
+	_exports.classic = {
+	    distance: function distance(width, sides) {
+	        return Math.round(width * Math.log(sides));
+	    },
+	    figures: function figures(width, images, initial) {
+	        var sides = images.length;
+	        var angle = 2 * Math.PI / sides;
+	        var distance = _exports.classic.distance(width, sides);
+	        var acceptable = Math.round(initial / angle) * angle;
+	        return Util.range(0, sides).map(function (d) {
+	            var angleR = d * angle + acceptable;
+	            return {
+	                rotateY: 0,
+	                translateX: distance * Math.sin(angleR),
+	                translateZ: distance * Math.cos(angleR),
+	                opacity: 1,
+	                present: true,
+	                key: d,
+	                image: images[d]
+	            };
+	        });
+	    }
+	};
 
 /***/ },
 /* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var Ease = __webpack_require__(207);
+	var Layout = __webpack_require__(205);
+	var Util = __webpack_require__(204);
+
+	module.exports = function depot(initialState, initialProps, callback) {
+	    var res = {};
+	    var state = initialState;
+	    var props = initialProps;
+	    var requestID;
+
+	    res.onNextProps = function onNextProps(nextProps) {
+	        if (props.layout != nextProps.layout || props.images != nextProps.images) {
+	            props = nextProps;
+	            var to = Layout[props.layout].figures(props.width, props.images, state.rotationY);
+	            var bounds = transitionFigures(state.figures, to, Ease[props.ease], props.duration);
+	            var stepper = transit(bounds, to, props.duration);
+	            playAnimation(state, to, stepper, callback);
+	        }
+	        props = nextProps;
+	    };
+	    res.onRotate = function (angle) {
+	        var to = Layout[props.layout].figures(props.width, props.images, state.rotationY + angle);
+	        state.rotationY += angle;
+	        var bounds = transitionFigures(state.figures, to, Ease[props.ease], props.duration);
+	        var stepper = transit(bounds, to, props.duration);
+	        if (requestID) {
+	            cancelAnimationFrame(requestID);
+	        }
+	        playAnimation(state, to, stepper, callback);
+	    };
+	    function playAnimation(state, to, stepper, callback) {
+	        if (requestID) window.cancelAnimationFrame(requestID);
+	        function animate(timestamp) {
+	            requestID = requestAnimationFrame(animate);
+	            state.figures = stepper(timestamp);
+	            callback(state);
+	            if (state.figures == to) {
+	                cancelAnimationFrame(requestID);
+	            }
+	        }
+	        requestAnimationFrame(animate);
+	    }
+	    return res;
+	};
+
+	function transitionFigures(from, to, ease) {
+	    var keys = Util.uniq(Util.pluck('key', from.concat(to)));
+	    var fromTo = [];
+	    keys.forEach(function (key) {
+	        fromTo.push(transfigure(startFrame(from[key], to[key]), endFrame(from[key], to[key]), ease));
+	    });
+	    return fromTo;
+	}
+
+	function transit(entries, to, duration) {
+	    var start, end;
+	    var withChange = addChange(entries);
+	    var time = 0;
+	    return function step(timestamp) {
+	        if (!start) {
+	            start = timestamp;
+	            end = timestamp + duration;
+	        }
+	        if (timestamp >= end) {
+	            return to;
+	        }
+	        time = timestamp - start;
+	        return tally(time, withChange, duration);
+	    };
+	}
+
+	function transfigure(from, to, ease) {
+	    var keys = Util.uniq(Object.keys(from || {}).concat(Object.keys(to || {})));
+	    var res = {};
+	    keys.forEach(function (key) {
+	        res[key] = {
+	            from: from[key],
+	            to: to[key]
+	        };
+	        res[key].ease = isNaN(res[key].from) ? secondArg : ease;
+	    });
+	    return res;
+	}
+
+	function addChange(entries) {
+	    var len = entries.length;
+	    var res = new Array(len);
+	    for (var i = 0; i < len; ++i) {
+	        res[i] = addObjChange(entries[i]);
+	    }
+	    return res;
+	}
+
+	function addObjChange(entry) {
+	    var res = Object.create(null);
+	    for (var key in entry) {
+	        res[key] = Util.merge(entry[key], { change: entry[key].to - entry[key].from });
+	    }
+	    return res;
+	}
+
+	function tally(time, entries, duration) {
+	    var len = entries.length;
+	    var res = new Array(len);
+	    var entry;
+	    for (var i = 0; i < len; ++i) {
+	        entry = entries[i];
+	        var obj = Object.create(null);
+	        for (var key in entry) {
+	            obj[key] = entry[key].ease ? entry[key].ease(time, entry[key].from, entry[key].change, duration) : entry[key].from;
+	        }
+	        res[i] = obj;
+	    }
+	    return res;
+	}
+
+	var secondArg = function secondArg(x, y) {
+	    return y;
+	};
+
+	var present = function present(entries) {
+	    return entries.filter(function (entry) {
+	        return entry.present;
+	    });
+	};
+
+	function startFrame(now, then) {
+	    return now || Util.merge(then, { present: true, opacity: 0 });
+	}
+
+	function endFrame(now, then) {
+	    return now && !then ? Util.merge(now, { present: false, opacity: 0 }) // leaves
+	    : Util.merge(then, { present: true, opacity: 1 });
+	}
+
+/***/ },
+/* 207 */
+/***/ function(module, exports, __webpack_require__) {
+
+	(function () {
+
+	    'use strict';
+
+
+	    function bounceOut(time, begin, change, duration) {
+	        if ((time /= duration) < 1 / 2.75) {
+	            return change * (7.5625 * time * time) + begin;
+	        } else if (time < 2 / 2.75) {
+	            return change * (7.5625 * (time -= 1.5 / 2.75) * time + 0.75) + begin;
+	        } else if (time < 2.5 / 2.75) {
+	            return change * (7.5625 * (time -= 2.25 / 2.75) * time + 0.9375) + begin;
+	        } else {
+	            return change * (7.5625 * (time -= 2.625 / 2.75) * time + 0.984375) + begin;
+	        }
+	    }
+
+
+	    function bounceIn(time, begin, change, duration) {
+	        return change - bounceOut(duration - time, 0, change, duration) + begin;
+	    }
+
+
+	    function bounceInOut(time, begin, change, duration) {
+	        if (time < duration / 2) {
+	            return bounceIn(time * 2, 0, change, duration) * 0.5 + begin;
+	        } else {
+	            return bounceOut(time * 2 - duration, 0, change, duration) * 0.5 + change * 0.5 + begin;
+	        }
+	    };
+
+	    function circIn(time, begin, change, duration) {
+	        return -change * (Math.sqrt(1 - (time = time / duration) * time) - 1) + begin;
+	    };
+
+	    function circOut(time, begin, change, duration) {
+	        return change * Math.sqrt(1 - (time = time / duration - 1) * time) + begin;
+	    };
+
+	    function circInOut(time, begin, change, duration) {
+	        if ((time = time / (duration / 2)) < 1) {
+	            return -change / 2 * (Math.sqrt(1 - time * time) - 1) + begin;
+	        } else {
+	            return change / 2 * (Math.sqrt(1 - (time -= 2) * time) + 1) + begin;
+	        }
+	    };
+
+	    function cubicIn(time, begin, change, duration) {
+	        return change * (time /= duration) * time * time + begin;
+	    };
+
+	    function cubicOut(time, begin, change, duration) {
+	        return change * ((time = time / duration - 1) * time * time + 1) + begin;
+	    };
+
+	    function cubicInOut(time, begin, change, duration) {
+	        if ((time = time / (duration / 2)) < 1) {
+	            return change / 2 * time * time * time + begin;
+	        } else {
+	            return change / 2 * ((time -= 2) * time * time + 2) + begin;
+	        }
+	    };
+
+	    function expoIn(time, begin, change, duration) {
+	        if (time === 0) {
+	            return begin;
+	        }
+	        return change * Math.pow(2, 10 * (time / duration - 1)) + begin;
+	    };
+
+	    function expoOut(time, begin, change, duration) {
+	        if (time === duration) {
+	            return begin + change;
+	        }
+	        return change * (-Math.pow(2, -10 * time / duration) + 1) + begin;
+	    };
+
+	    function expoInOut(time, begin, change, duration) {
+	        if (time === 0) {
+	            return begin;
+	        } else if (time === duration) {
+	            return begin + change;
+	        } else if ((time = time / (duration / 2)) < 1) {
+	            return change / 2 * Math.pow(2, 10 * (time - 1)) + begin;
+	        } else {
+	            return change / 2 * (-Math.pow(2, -10 * (time - 1)) + 2) + begin;
+	        }
+	    };
+
+	    function linear(time, begin, change, duration) {
+	        return change * time / duration + begin;
+	    };
+
+	    function quadIn(time, begin, change, duration) {
+	        return change * (time = time / duration) * time + begin;
+	    };
+
+	    function quadOut(time, begin, change, duration) {
+	        return -change * (time = time / duration) * (time - 2) + begin;
+	    };
+
+	    function quadInOut(time, begin, change, duration) {
+	        if ((time = time / (duration / 2)) < 1) {
+	            return change / 2 * time * time + begin;
+	        } else {
+	            return -change / 2 * ((time -= 1) * (time - 2) - 1) + begin;
+	        }
+	    };
+
+	    function quartIn(time, begin, change, duration) {
+	        return change * (time = time / duration) * time * time * time + begin;
+	    };
+
+	    function quartOut(time, begin, change, duration) {
+	        return -change * ((time = time / duration - 1) * time * time * time - 1) + begin;
+	    };
+
+	    function quartInOut(time, begin, change, duration) {
+	        if ((time = time / (duration / 2)) < 1) {
+	            return change / 2 * time * time * time * time + begin;
+	        } else {
+	            return -change / 2 * ((time -= 2) * time * time * time - 2) + begin;
+	        }
+	    };
+
+	    function quintIn(time, begin, change, duration) {
+	        return change * (time = time / duration) * time * time * time * time + begin;
+	    };
+
+	    function quintOut(time, begin, change, duration) {
+	        return change * ((time = time / duration - 1) * time * time * time * time + 1) + begin;
+	    };
+
+	    function quintInOut(time, begin, change, duration) {
+	        if ((time = time / (duration / 2)) < 1) {
+	            return change / 2 * time * time * time * time * time + begin;
+	        } else {
+	            return change / 2 * ((time -= 2) * time * time * time * time + 2) + begin;
+	        }
+	    };
+
+	    function sineIn(time, begin, change, duration) {
+	        return -change * Math.cos(time / duration * (Math.PI / 2)) + change + begin;
+	    };
+
+	    function sineOut(time, begin, change, duration) {
+	        return change * Math.sin(time / duration * (Math.PI / 2)) + begin;
+	    };
+
+	    function sineInOut(time, begin, change, duration) {
+	        return -change / 2 * (Math.cos(Math.PI * time / duration) - 1) + begin;
+	    };
+
+	    var Ease = {
+	        bounceOut: bounceOut,
+	        bounceIn: bounceIn,
+	        bounceInOut: bounceInOut,
+	        circIn: circIn,
+	        circOut: circOut,
+	        circInOut: circInOut,
+	        cubicIn: cubicIn,
+	        cubicOut: cubicOut,
+	        cubicInOut: cubicInOut,
+	        expoIn: expoIn,
+	        expoOut: expoOut,
+	        expoInOut: expoInOut,
+	        linear: linear,
+	        quadIn: quadIn,
+	        quadOut: quadOut,
+	        quadInOut: quadInOut,
+	        quartIn: quartIn,
+	        quartOut: quartOut,
+	        quartInOut: quartInOut,
+	        quintIn: quintIn,
+	        quintOut: quintOut,
+	        quintInOut: quintInOut,
+	        sineIn: sineIn,
+	        sineOut: sineOut,
+	        sineInOut: sineInOut
+	    }
+	    if (true) {
+	        module.exports = Ease;
+	    } else if (typeof define === 'function' && define.amd) {
+	        define(function () {
+	            return Ease;
+	        });
+	    } else {
+	        this.Ease = Ease;
+	    }
+
+	}.call(this));
+
+/***/ },
+/* 208 */
+/***/ function(module, exports, __webpack_require__) {
+
+	(function () {
+
+	    'use strict';
+
+
+	    function bounceOut(time, begin, change, duration) {
+	        if ((time /= duration) < 1 / 2.75) {
+	            return change * (7.5625 * time * time) + begin;
+	        } else if (time < 2 / 2.75) {
+	            return change * (7.5625 * (time -= 1.5 / 2.75) * time + 0.75) + begin;
+	        } else if (time < 2.5 / 2.75) {
+	            return change * (7.5625 * (time -= 2.25 / 2.75) * time + 0.9375) + begin;
+	        } else {
+	            return change * (7.5625 * (time -= 2.625 / 2.75) * time + 0.984375) + begin;
+	        }
+	    }
+
+
+	    function bounceIn(time, begin, change, duration) {
+	        return change - bounceOut(duration - time, 0, change, duration) + begin;
+	    }
+
+
+	    function bounceInOut(time, begin, change, duration) {
+	        if (time < duration / 2) {
+	            return bounceIn(time * 2, 0, change, duration) * 0.5 + begin;
+	        } else {
+	            return bounceOut(time * 2 - duration, 0, change, duration) * 0.5 + change * 0.5 + begin;
+	        }
+	    };
+
+	    function circIn(time, begin, change, duration) {
+	        return -change * (Math.sqrt(1 - (time = time / duration) * time) - 1) + begin;
+	    };
+
+	    function circOut(time, begin, change, duration) {
+	        return change * Math.sqrt(1 - (time = time / duration - 1) * time) + begin;
+	    };
+
+	    function circInOut(time, begin, change, duration) {
+	        if ((time = time / (duration / 2)) < 1) {
+	            return -change / 2 * (Math.sqrt(1 - time * time) - 1) + begin;
+	        } else {
+	            return change / 2 * (Math.sqrt(1 - (time -= 2) * time) + 1) + begin;
+	        }
+	    };
+
+	    function cubicIn(time, begin, change, duration) {
+	        return change * (time /= duration) * time * time + begin;
+	    };
+
+	    function cubicOut(time, begin, change, duration) {
+	        return change * ((time = time / duration - 1) * time * time + 1) + begin;
+	    };
+
+	    function cubicInOut(time, begin, change, duration) {
+	        if ((time = time / (duration / 2)) < 1) {
+	            return change / 2 * time * time * time + begin;
+	        } else {
+	            return change / 2 * ((time -= 2) * time * time + 2) + begin;
+	        }
+	    };
+
+	    function expoIn(time, begin, change, duration) {
+	        if (time === 0) {
+	            return begin;
+	        }
+	        return change * Math.pow(2, 10 * (time / duration - 1)) + begin;
+	    };
+
+	    function expoOut(time, begin, change, duration) {
+	        if (time === duration) {
+	            return begin + change;
+	        }
+	        return change * (-Math.pow(2, -10 * time / duration) + 1) + begin;
+	    };
+
+	    function expoInOut(time, begin, change, duration) {
+	        if (time === 0) {
+	            return begin;
+	        } else if (time === duration) {
+	            return begin + change;
+	        } else if ((time = time / (duration / 2)) < 1) {
+	            return change / 2 * Math.pow(2, 10 * (time - 1)) + begin;
+	        } else {
+	            return change / 2 * (-Math.pow(2, -10 * (time - 1)) + 2) + begin;
+	        }
+	    };
+
+	    function linear(time, begin, change, duration) {
+	        return change * time / duration + begin;
+	    };
+
+	    function quadIn(time, begin, change, duration) {
+	        return change * (time = time / duration) * time + begin;
+	    };
+
+	    function quadOut(time, begin, change, duration) {
+	        return -change * (time = time / duration) * (time - 2) + begin;
+	    };
+
+	    function quadInOut(time, begin, change, duration) {
+	        if ((time = time / (duration / 2)) < 1) {
+	            return change / 2 * time * time + begin;
+	        } else {
+	            return -change / 2 * ((time -= 1) * (time - 2) - 1) + begin;
+	        }
+	    };
+
+	    function quartIn(time, begin, change, duration) {
+	        return change * (time = time / duration) * time * time * time + begin;
+	    };
+
+	    function quartOut(time, begin, change, duration) {
+	        return -change * ((time = time / duration - 1) * time * time * time - 1) + begin;
+	    };
+
+	    function quartInOut(time, begin, change, duration) {
+	        if ((time = time / (duration / 2)) < 1) {
+	            return change / 2 * time * time * time * time + begin;
+	        } else {
+	            return -change / 2 * ((time -= 2) * time * time * time - 2) + begin;
+	        }
+	    };
+
+	    function quintIn(time, begin, change, duration) {
+	        return change * (time = time / duration) * time * time * time * time + begin;
+	    };
+
+	    function quintOut(time, begin, change, duration) {
+	        return change * ((time = time / duration - 1) * time * time * time * time + 1) + begin;
+	    };
+
+	    function quintInOut(time, begin, change, duration) {
+	        if ((time = time / (duration / 2)) < 1) {
+	            return change / 2 * time * time * time * time * time + begin;
+	        } else {
+	            return change / 2 * ((time -= 2) * time * time * time * time + 2) + begin;
+	        }
+	    };
+
+	    function sineIn(time, begin, change, duration) {
+	        return -change * Math.cos(time / duration * (Math.PI / 2)) + change + begin;
+	    };
+
+	    function sineOut(time, begin, change, duration) {
+	        return change * Math.sin(time / duration * (Math.PI / 2)) + begin;
+	    };
+
+	    function sineInOut(time, begin, change, duration) {
+	        return -change / 2 * (Math.cos(Math.PI * time / duration) - 1) + begin;
+	    };
+
+	    var Ease = {
+	        bounceOut: bounceOut,
+	        bounceIn: bounceIn,
+	        bounceInOut: bounceInOut,
+	        circIn: circIn,
+	        circOut: circOut,
+	        circInOut: circInOut,
+	        cubicIn: cubicIn,
+	        cubicOut: cubicOut,
+	        cubicInOut: cubicInOut,
+	        expoIn: expoIn,
+	        expoOut: expoOut,
+	        expoInOut: expoInOut,
+	        linear: linear,
+	        quadIn: quadIn,
+	        quadOut: quadOut,
+	        quadInOut: quadInOut,
+	        quartIn: quartIn,
+	        quartOut: quartOut,
+	        quartInOut: quartInOut,
+	        quintIn: quintIn,
+	        quintOut: quintOut,
+	        quintInOut: quintInOut,
+	        sineIn: sineIn,
+	        sineOut: sineOut,
+	        sineInOut: sineInOut
+	    }
+	    if (true) {
+	        module.exports = Ease;
+	    } else if (typeof define === 'function' && define.amd) {
+	        define(function () {
+	            return Ease;
+	        });
+	    } else {
+	        this.Ease = Ease;
+	    }
+
+	}.call(this));
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var React = __webpack_require__(1);
+	var Carousel = __webpack_require__(202);
 
 	var About = React.createClass({displayName: "About",
 	  render: function(){
 	      return (
-	        React.createElement("main", null, 
-	          "About component"
+	        React.createElement("main", null,
+	          "About component",
+	          React.createElement(Carousel, null)
 	        )
 	      );
 	  }

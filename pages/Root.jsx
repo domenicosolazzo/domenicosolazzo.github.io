@@ -1,8 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
-var Header = require('./Header.jsx');
-var css = require('../css/base.css')
+var Header = require('../components/Header.jsx');
+var css = require('../css/base.css');
 
 var Root = React.createClass({
   render: function(){
@@ -15,10 +15,16 @@ var Root = React.createClass({
         <head>
           <title>{this.props.title}</title>
           <style dangerouslySetInnerHTML={{ __html: css }} />
+          <link rel="stylesheet" href="../vendors/animatecss/animate.min.css" />
         </head>
         <body className="p2">
-          <Header />
-          <RouteHandler {...this.props} />
+          <div className="container">
+            <div className="clearfix">
+            </div>
+            <Header />
+            <RouteHandler {...this.props} />
+          </div>
+
           <script
             id='initial-props'
             type='application/json'

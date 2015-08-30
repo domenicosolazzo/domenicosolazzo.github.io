@@ -1,13 +1,12 @@
 var React = require('react');
-var Carousel = require('./Carousel.jsx');
 
 var Index = React.createClass({
   render: function(){
     return (
       <main>
-        Index component
-        <br />
-        <Carousel />
+        <section id="index-title">
+          <h1 className="animated rubberBand center">Domenico Solazzo</h1>
+        </section>
       </main>
     );
   }

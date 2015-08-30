@@ -6,8 +6,20 @@ var Header = React.createClass({
   render: function () {
     return (
       <header>
-        <Link to="/">Index</Link>
-        <Link to="/about">About</Link>
+        <div className="sm-flex center nowrap">
+          <div className="flex-auto">
+            <Link to="/" className="btn block animated bounceInLeft">Index</Link>
+          </div>
+          <div className="flex-auto">
+            <Link to="/about" className="btn block animated bounceInLeft">About</Link>
+          </div>
+          <div className="flex-auto">
+            <Link to="/" className="btn block animated bounceInDown">Contact</Link>
+          </div>
+          <div className="flex-auto">
+            <Link to="/" className="btn block animated bounceInRight">Follow me</Link>
+          </div>
+        </div>
       </header>
     );
   }
