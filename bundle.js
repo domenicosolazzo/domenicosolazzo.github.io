@@ -23749,11 +23749,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	      React.createElement("main", null, 
 	        React.createElement("section", {id: "index-title", className: "clearfix border-none"}, 
 	          React.createElement("div", {className: "col col-12"}, 
-	            React.createElement("h1", {className: "animated rubberBand center"}, "Domenico Solazzo")
+	            React.createElement("h1", {className: "animated rubberBand center"}, 
+	              "Hi, I am Domenico Solazzo!"
+	            )
 	          )
 	        ), 
 	        React.createElement("section", {id: "index-code", className: "clearfix border-top"}, 
-	          React.createElement("h3", {className: "animated bounceInLeft center"}, "Code")
+	          React.createElement("div", {className: "clearfix border-none"}, 
+	            React.createElement("div", {className: "col col-12"}, 
+	              React.createElement("h3", {className: "animated bounceInLeft center"}, "Code")
+	            )
+	          ), 
+	          React.createElement("div", {className: "clearfix border-none"}, 
+	            React.createElement("div", {className: "col col-12"}, 
+	              React.createElement("p", null, 
+	                "I love coding and feel free to check my ", React.createElement("a", {href: "https://github.com/domenicosolazzo", target: "_blank"}, "Github"), " account.", 
+	                React.createElement("br", null), React.createElement("br", null), 
+	                "I am always learning but nowadays, I often use Python, Javascript and Swift."
+	              )
+	            )
+	          )
 	        ), 
 	        React.createElement("section", {id: "index-design", className: "clearfix border-top"}, 
 	          React.createElement("div", {className: "clearfix border-none"}, 
@@ -23772,20 +23787,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	          ), 
 	          React.createElement("div", {className: "clearfix border-none"}, 
 
-	            React.createElement("div", {className: "col col-6"}, 
-	              React.createElement("img", {className: "circle", src: "https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/gauge/Exports/Gauge.png"})
+	            React.createElement("div", {className: "col col-6 center"}, 
+	              React.createElement("img", {className: "circle", src: "https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/gauge/Exports/Gauge%400%2C5x.png"})
 	            ), 
-	            React.createElement("div", {className: "col col-6"}, 
-	              React.createElement("img", {className: "circle", src: "https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/switch/Exports/WithoutBackground/Colorful%20Switch.png"})
+	            React.createElement("div", {className: "col col-6 center"}, 
+	              React.createElement("img", {className: "circle", src: "https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/switch/Exports/WithoutBackground/Colorful%20Switch%400%2C5x.png"})
 	            )
 
 	          ), 
 	          React.createElement("div", {className: "clearfix border-none"}, 
-	            React.createElement("div", {className: "col col-6"}, 
-	              React.createElement("img", {className: "circle", src: "https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/calendar/Exports/WithoutBackground/Calendar.png"})
+	            React.createElement("div", {className: "col col-6 center"}, 
+	              React.createElement("img", {className: "circle", src: "https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/calendar/Exports/WithoutBackground/Calendar%400%2C5x.png"})
 	            ), 
-	            React.createElement("div", {className: "col col-6"}, 
-	              React.createElement("img", {className: "circle", src: "https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/todo/Exports/iTunesArtwork-512.png"})
+	            React.createElement("div", {className: "col col-6 center"}, 
+	              React.createElement("img", {className: "circle", src: "https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/todo/Exports/iTunesArtwork-512%400%2C5x.png"})
 	            )
 	          )
 	        )
@@ -23806,7 +23821,124 @@ return /******/ (function(modules) { // webpackBootstrap
 	var About = React.createClass({displayName: "About",
 	  render: function(){
 	      return (
-	        React.createElement("main", null
+	        React.createElement("main", null, 
+	          React.createElement("section", {id: "index-title", className: "clearfix border-none"}, 
+	            React.createElement("div", {className: "col col-12"}, 
+	              React.createElement("h1", {className: "animated rubberBand center"}, 
+	                "Eduction, Work experience and what I love!"
+	              )
+	            )
+	          ), 
+	          React.createElement("section", {id: "index-code", className: "clearfix border-top"}, 
+	            React.createElement("div", {className: "clearfix border-none"}, 
+	              React.createElement("div", {className: "col col-12"}, 
+	                React.createElement("h3", {className: "animated bounceInLeft center"}, "Education")
+	              )
+	            ), 
+	            React.createElement("div", {className: "clearfix border-none"}, 
+	              React.createElement("div", {className: "col col-12"}, 
+	                React.createElement("p", null, 
+	                  "August 2009: Master of Science in Software Development ", React.createElement("br", null), 
+	                  "Aalborg Universitet - Denmark", 
+	                  React.createElement("br", null), React.createElement("br", null), 
+	                  "Thesis: \"SubClassifier - Automatic Text Categorization of patents using Subgroup Discovery\"", 
+	                  React.createElement("br", null), 
+	                  "The thesis involved a study on the automatic categorization of WIPO patents taking into consideration descriptive data mining techniques, such as Subgroup Discovery.", 
+	                  React.createElement("br", null), React.createElement("br", null), 
+	                  "Main Courses: Business Intelligence, Computer Supported Cooperative Work, Structural Computing, Fuzzy Logic, Information Retrieval, Computer Vision, Virtual Reality, Semantic Web", 
+	                  React.createElement("br", null), React.createElement("br", null), React.createElement("br", null), React.createElement("br", null), 
+	                  "March 2007: Bachelor of Science in Computer Networks and Security ", React.createElement("br", null), 
+	                  "University of Torino, Italy", 
+	                  React.createElement("br", null), React.createElement("br", null), 
+	                  "Thesis: \"Centro Unico Prenotazioni (C.U.P.)\"" + " " +
+	                  "The thesis covered the analysis and implementation of an online appointment booking service that could be used in hospitals and clinics in the North of Italy.", 
+	                  React.createElement("br", null), React.createElement("br", null), 
+	                  "Main couses: Programming, DataBase, Computer Networks, SNMP, Security"
+	                )
+	              )
+	            )
+	          ), 
+	          React.createElement("section", {id: "index-code", className: "clearfix border-top"}, 
+	            React.createElement("div", {className: "clearfix border-none"}, 
+	              React.createElement("div", {className: "col col-12"}, 
+	                React.createElement("h3", {className: "animated bounceInLeft center"}, "Work Experience")
+	              )
+	            ), 
+	            React.createElement("div", {className: "clearfix border-none"}, 
+	              React.createElement("div", {className: "col col-12"}, 
+	                React.createElement("p", null, 
+	                  "Feb 2015 / Present: Senior Developer - Oslo, Norway", React.createElement("br", null), 
+	                  "I am a full stack developer working for a news agency in Oslo.", 
+	                  React.createElement("br", null), React.createElement("br", null), 
+
+	                  "Nov 2011 / Jan 2015: Senior Developer - Oslo, Norway", React.createElement("br", null), 
+	                  "I am a full stack developer for the digital asset management platform, working on enhancing" + " " +
+	                  "the API modules and a real time analytic system for product data.", React.createElement("br", null), 
+	                  "I am the main responsible for the software architecture and integration of the business services running across the company departments including financial, e-commerce and licensing data.", 
+	                  React.createElement("br", null), React.createElement("br", null), 
+
+	                  "Feb 2011 / 2011: Senior Developer - Oslo, Norway", React.createElement("br", null), 
+	                  "Analysis and implementation of modules of a semantic content managementsystem. ", React.createElement("br", null), 
+	                  "I was also working with customer implementations of the content management system.", 
+	                  React.createElement("br", null), React.createElement("br", null), 
+
+	                  "May 2010 / Janaury 2011: Senior Developer - Oslo, Norway ", React.createElement("br", null), 
+	                  "Analysis and implementation of SOA modules for an E-Learning platform", 
+	                  React.createElement("br", null), React.createElement("br", null), 
+
+	                  "Jan 2008 / Apr 2010: Team leader & Developer - Esbjerg, Denmark ", React.createElement("br", null), 
+	                  "Team leader of the software team that was developing a platform for creating data warehouse on demand.", 
+	                  React.createElement("br", null), React.createElement("br", null), 
+
+	                  "Jul 2005 / September 2007: Developer - Asti, Italy ", React.createElement("br", null), 
+	                  "Working on Hospital Information System. ", React.createElement("br", null), 
+	                  "I was developing and maintaining an Electronical Medical Record (EMR)", 
+	                  React.createElement("br", null), React.createElement("br", null), 
+
+	                  "Jan 2004 / Jun 2005: Junior Developer - Asti, Italy  ", React.createElement("br", null), 
+	                  "Developing an Electronical Patient Record (EPR) as a module of a" + " " +
+	                  "large Hospital Information System.", 
+	                  React.createElement("br", null), React.createElement("br", null)
+	                )
+	              )
+	            )
+	          ), 
+	          React.createElement("section", {id: "index-code", className: "clearfix border-top"}, 
+	            React.createElement("div", {className: "clearfix border-none"}, 
+	              React.createElement("div", {className: "col col-12"}, 
+	                React.createElement("h3", {className: "animated bounceInLeft center"}, "Honors and Awards")
+	              )
+	            ), 
+	            React.createElement("div", {className: "clearfix border-none"}, 
+	              React.createElement("div", {className: "col col-12"}, 
+	                React.createElement("p", null, 
+	                  "April 2012: Runner-up, Oslo Health Challenge", React.createElement("br", null), 
+	                  "Place: Oslo, Norway", React.createElement("br", null), 
+	                  "Project name: MeYu ", React.createElement("br", null), 
+	                  "Description: A helper mobile app for young patients with cancer.", 
+	                  React.createElement("br", null), React.createElement("br", null)
+	                )
+	              )
+	            )
+	          ), 
+	          React.createElement("section", {id: "index-code", className: "clearfix border-top"}, 
+	            React.createElement("div", {className: "clearfix border-none"}, 
+	              React.createElement("div", {className: "col col-12"}, 
+	                React.createElement("h3", {className: "animated bounceInLeft center"}, "Interests")
+	              )
+	            ), 
+	            React.createElement("div", {className: "clearfix border-none"}, 
+	              React.createElement("div", {className: "col col-12"}, 
+	                React.createElement("p", null, 
+	                  "Startup weekend organizer in 2012 and 2013. Oslo, Norway ", React.createElement("br", null), 
+	                  "Training regularly.", React.createElement("br", null), 
+	                  "Jazz lover. ", React.createElement("br", null), 
+	                  "Interested in Stoicism. ", React.createElement("br", null), 
+	                  React.createElement("br", null), React.createElement("br", null)
+	                )
+	              )
+	            )
+	          )
 	        )
 	      );
 	  }
