@@ -4,14 +4,14 @@ var About = React.createClass({
   render: function(){
       return (
         <main>
-          <section id="index-title" className="clearfix border-none">
+          <section id="about-title" className="clearfix border-none">
             <div className="col col-12">
               <h1 className="animated rubberBand center">
                 Eduction, Work experience and what I love!
               </h1>
             </div>
           </section>
-          <section id="index-code" className="clearfix border-top">
+          <section id="about-education" className="clearfix border-top">
             <div className="clearfix border-none">
               <div className="col col-12">
                 <h3 className="animated bounceInLeft center">Education</h3>
@@ -40,7 +40,7 @@ var About = React.createClass({
               </div>
             </div>
           </section>
-          <section id="index-code" className="clearfix border-top">
+          <section id="about-work" className="clearfix border-top">
             <div className="clearfix border-none">
               <div className="col col-12">
                 <h3 className="animated bounceInLeft center">Work Experience</h3>
@@ -85,7 +85,7 @@ var About = React.createClass({
               </div>
             </div>
           </section>
-          <section id="index-code" className="clearfix border-top">
+          <section id="about-honors" className="clearfix border-top">
             <div className="clearfix border-none">
               <div className="col col-12">
                 <h3 className="animated bounceInLeft center">Honors and Awards</h3>
@@ -103,7 +103,7 @@ var About = React.createClass({
               </div>
             </div>
           </section>
-          <section id="index-code" className="clearfix border-top">
+          <section id="about-other" className="clearfix border-top">
             <div className="clearfix border-none">
               <div className="col col-12">
                 <h3 className="animated bounceInLeft center">Interests</h3>

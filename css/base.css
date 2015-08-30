@@ -3,3 +3,7 @@
 :root {
   --font-family: 'Avenir Next', 'Helvetica Neue', sans-serif;
 }
+
+.gravatar{
+  border-radius: 50%;
+}
