@@ -44,21 +44,29 @@ var Index = React.createClass({
           </div>
           <div className="clearfix border-none">
 
-            <div className="col col-6 center">
-              <img className="circle" src="https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/gauge/Exports/Gauge%400%2C5x.png" />
+            <div className="col col-3 design-item-container">
+              <div className="design-shot">
+                <img className="design-image" src="https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/gauge/Exports/Gauge%400%2C5x.png" />
+              </div>
+              <ul className="tools">
+                <li className="fav">
+                  <a title="View fans of this shot" href="/shots/2226721--About/fans">352</a>
+                </li>
+              </ul>
             </div>
-            <div className="col col-6 center">
-              <img className="circle" src="https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/switch/Exports/WithoutBackground/Colorful%20Switch%400%2C5x.png" />
+            <div className="col col-3 design-item-container">
+              <img className="design-item" src="https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/switch/Exports/WithoutBackground/Colorful%20Switch%400%2C5x.png" />
+            </div>
+            <div className="col col-3 design-item-container">
+              <img className="design-item" src="https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/calendar/Exports/WithoutBackground/Calendar%400%2C5x.png" />
+            </div>
+            <div className="col col-3 design-item-container">
+              <img className="design-item" src="https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/todo/Exports/iTunesArtwork-512%400%2C5x.png" />
             </div>
 
           </div>
           <div className="clearfix border-none">
-            <div className="col col-6 center">
-              <img className="circle" src="https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/calendar/Exports/WithoutBackground/Calendar%400%2C5x.png" />
-            </div>
-            <div className="col col-6 center">
-              <img className="circle" src="https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/todo/Exports/iTunesArtwork-512%400%2C5x.png" />
-            </div>
+
           </div>
         </section>
       </main>
