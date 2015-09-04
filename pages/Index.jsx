@@ -1,4 +1,5 @@
 var React = require('react');
+var FontAwesome = require('react-fontawesome');
 
 var Index = React.createClass({
   render: function(){
@@ -49,8 +50,16 @@ var Index = React.createClass({
                 <img className="design-image" src="https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/gauge/Exports/Gauge%400%2C5x.png" />
               </div>
               <ul className="tools">
-                <li className="fav">
-                  <a title="View fans of this shot" href="/shots/2226721--About/fans">352</a>
+                <li>
+                  <a title="View fans of this shot" href="#">
+                    <FontAwesome name='eye' /> 1000
+                  </a>
+                  <a title="Comments fans of this shot" href="#">
+                    <FontAwesome name='comment' /> 10
+                  </a>
+                  <a title="Like fans of this shot" href="#">
+                    <FontAwesome name='heart' /> 232
+                  </a>
                 </li>
               </ul>
             </div>
@@ -59,8 +68,16 @@ var Index = React.createClass({
                 <img className="design-item" src="https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/switch/Exports/WithoutBackground/Colorful%20Switch%400%2C5x.png" />
               </div>
               <ul className="tools">
-                <li className="fav">
-                  <a title="View fans of this shot" href="/shots/2226721--About/fans">352</a>
+                <li>
+                  <a title="View fans of this shot" href="#">
+                    <FontAwesome name='eye' /> 1000
+                  </a>
+                  <a title="Comments fans of this shot" href="#">
+                    <FontAwesome name='comment' /> 10
+                  </a>
+                  <a title="Like fans of this shot" href="#">
+                    <FontAwesome name='heart' /> 232
+                  </a>
                 </li>
               </ul>
             </div>
@@ -69,8 +86,16 @@ var Index = React.createClass({
                 <img className="design-item" src="https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/calendar/Exports/WithoutBackground/Calendar%400%2C5x.png" />
               </div>
               <ul className="tools">
-                <li className="fav">
-                  <a title="View fans of this shot" href="/shots/2226721--About/fans">352</a>
+                <li>
+                  <a title="View fans of this shot" href="#">
+                    <FontAwesome name='eye' /> 1000
+                  </a>
+                  <a title="Comments fans of this shot" href="#">
+                    <FontAwesome name='comment' /> 10
+                  </a>
+                  <a title="Like fans of this shot" href="#">
+                    <FontAwesome name='heart' /> 232
+                  </a>
                 </li>
               </ul>
             </div>
@@ -79,8 +104,16 @@ var Index = React.createClass({
                 <img className="design-item" src="https://raw.githubusercontent.com/domenicosolazzo/practice-sketch/master/icons/todo/Exports/iTunesArtwork-512%400%2C5x.png" />
               </div>
               <ul className="tools">
-                <li className="fav">
-                  <a title="View fans of this shot" href="/shots/2226721--About/fans">352</a>
+                <li>
+                  <a title="View fans of this shot" href="#">
+                    <FontAwesome name='eye' /> 1000
+                  </a>
+                  <a title="Comments fans of this shot" href="#">
+                    <FontAwesome name='comment' /> 10
+                  </a>
+                  <a title="Like fans of this shot" href="#">
+                    <FontAwesome name='heart' /> 232
+                  </a>
                 </li>
               </ul>
             </div>

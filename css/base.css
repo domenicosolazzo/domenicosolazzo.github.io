@@ -30,7 +30,7 @@ body{
 }
 
 .design-shot{
-  padding: 10px 10px 20px 10px;
+  padding: 10px;
   margin: 0px;
   vertical-align: baseline;
   border: 0;
@@ -48,7 +48,6 @@ body{
 .tools{
   text-align: left;
 }
-
 ul.tools li{
   float: right;
   width: auto;
@@ -60,13 +59,10 @@ ul.tools li{
 }
 
 ul.tools li a {
+    padding: 0 10px 5px 0;
     text-decoration: none;
     color: #aaa;
-}
-
-li.fav a:first-child, li.fav span {
     padding-left: 15px;
     background-repeat: no-repeat;
     background-position: 0 0;
-    background-image: url(https://d13yacurqjgara.cloudfront.net/assets/icon-hearts-5346c1878ba020ea64b60f7984eded18.png?2);
 }
