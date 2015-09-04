@@ -4,7 +4,20 @@ body{
   background-color: #F4F4F4;
 }
 :root {
-  --font-family: 'Avenir Next', 'Helvetica Neue', sans-serif;
+  --font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+
+.section-title{
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+  background: #444;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.section-description{
+  margin-bottom:30px;
 }
 
 .gravatar{

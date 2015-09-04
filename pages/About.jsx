@@ -12,12 +12,12 @@ var About = React.createClass({
             </div>
           </section>
           <section id="about-education" className="clearfix border-top">
-            <div className="clearfix border-none">
+            <div className="clearfix border-none section-title">
               <div className="col col-12">
                 <h3 className="animated bounceInLeft center">Education</h3>
               </div>
             </div>
-            <div className="clearfix border-none">
+            <div className="clearfix border-none section-description">
               <div className="col col-12">
                 <p>
                   August 2009: Master of Science in Software Development <br />
@@ -41,12 +41,12 @@ var About = React.createClass({
             </div>
           </section>
           <section id="about-work" className="clearfix border-top">
-            <div className="clearfix border-none">
+            <div className="clearfix border-none section-title">
               <div className="col col-12">
                 <h3 className="animated bounceInLeft center">Work Experience</h3>
               </div>
             </div>
-            <div className="clearfix border-none">
+            <div className="clearfix border-none section-description">
               <div className="col col-12">
                 <p>
                   Feb 2015 / Present: Senior Developer - Oslo, Norway<br />
@@ -86,12 +86,12 @@ var About = React.createClass({
             </div>
           </section>
           <section id="about-honors" className="clearfix border-top">
-            <div className="clearfix border-none">
+            <div className="clearfix border-none section-title">
               <div className="col col-12">
                 <h3 className="animated bounceInLeft center">Honors and Awards</h3>
               </div>
             </div>
-            <div className="clearfix border-none">
+            <div className="clearfix border-none section-description">
               <div className="col col-12">
                 <p>
                   April 2012: Runner-up, Oslo Health Challenge<br />
@@ -104,12 +104,12 @@ var About = React.createClass({
             </div>
           </section>
           <section id="about-other" className="clearfix border-top">
-            <div className="clearfix border-none">
+            <div className="clearfix border-none section-title">
               <div className="col col-12">
                 <h3 className="animated bounceInLeft center">Interests</h3>
               </div>
             </div>
-            <div className="clearfix border-none">
+            <div className="clearfix border-none section-description">
               <div className="col col-12">
                 <p>
                   Startup weekend organizer in 2012 and 2013. Oslo, Norway <br />

@@ -13,12 +13,12 @@ var Index = React.createClass({
           </div>
         </section>
         <section id="index-code" className="clearfix border-top">
-          <div className="clearfix border-none">
+          <div className="clearfix border-none section-title">
             <div className="col col-12">
               <h3 className="animated bounceInLeft center">Code</h3>
             </div>
           </div>
-          <div className="clearfix border-none">
+          <div className="clearfix border-none section-description">
             <div className="col col-12">
               <p>
                 I love coding and feel free to check my <a href="https://github.com/domenicosolazzo" target="_blank">Github</a> account.
@@ -29,12 +29,12 @@ var Index = React.createClass({
           </div>
         </section>
         <section id="index-design" className="clearfix border-top">
-          <div className="clearfix border-none">
+          <div className="clearfix border-none section-title">
             <div className="col col-12">
               <h3 className="animated bounceInRight center">Design</h3>
             </div>
           </div>
-          <div className="clearfix border-none">
+          <div className="clearfix border-none section-description">
             <div className="col col-12">
               <p>
                 In my spare time, I like to learn about design.
