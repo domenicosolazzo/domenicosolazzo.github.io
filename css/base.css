@@ -24,6 +24,25 @@ body{
   border-radius: 50%;
 }
 
+.action{
+  background-color: #ea4c89;
+  color: #fff;
+  border: none;
+  position: relative;
+  text-decoration: none !important;
+  top: -1px;
+  margin: 0 0 0 5px;
+  padding: 5px 12px;
+  font-size: 12px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+a.action:hover{
+  background-color: #D3447B;
+}
+
 .design-container{
     margin: 0 20px 30px;
     background-color: #fff;

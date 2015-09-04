@@ -21,7 +21,7 @@ var Index = React.createClass({
           <div className="clearfix border-none section-description">
             <div className="col col-12">
               <p>
-                I love coding and feel free to check my <a href="https://github.com/domenicosolazzo" target="_blank">Github</a> account.
+                I love coding and feel free to check my <a className="action" href="https://github.com/domenicosolazzo" target="_blank">Github</a> account.
                 <br /><br />
                 I am always learning but nowadays, I often use Python, Javascript and Swift.
               </p>
