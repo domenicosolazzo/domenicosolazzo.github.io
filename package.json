@@ -26,6 +26,7 @@
   "dependencies": {
     "ease-functions": "0.0.1",
     "react-3d-carousel": "0.0.6",
+    "react-fontawesome": "^0.3.2",
     "react-loading": "0.0.7",
     "react-pong": "^1.0.0",
     "react-swipe": "^2.3.0",
