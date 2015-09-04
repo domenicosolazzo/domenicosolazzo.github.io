@@ -11,21 +11,31 @@ body{
   border-radius: 50%;
 }
 
-.design-item-container{
-  padding: 0 10px 10px
-  background-color: #ffffff;
+.design-container{
+    margin: 0 20px 30px;
+    background-color: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07);
 
-  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
 }
 
 .design-shot{
+  /*
+
+  */
+}
+
+.design-shot{
+  padding: 10px 10px 20px 10px;
   margin: 0px;
   vertical-align: baseline;
   border: 0;
   outline: 0;
-  display: block;
   clear: left;
-
 }
 
 .design-img{
