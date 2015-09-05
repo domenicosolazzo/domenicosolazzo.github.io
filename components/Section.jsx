@@ -1,5 +1,12 @@
 var React = require('react');
+var marked = require('react-marked');
 
+var description = "I love coding and feel free to check my [Github action](https://github.com/domenicosolazzo) account. I am always learning but nowadays, I often use Python, Javascript and Swift.";
+/*
+
+<br /><br />
+
+*/
 var Section = React.createClass({
   render: function () {
     return (
@@ -13,9 +20,7 @@ var Section = React.createClass({
             <div className="container clearfix border-none section-description">
               <div className="col col-12">
                 <p>
-                  I love coding and feel free to check my <a className="action" href="https://github.com/domenicosolazzo" target="_blank">Github</a> account.
-                  <br /><br />
-                  I am always learning but nowadays, I often use Python, Javascript and Swift.
+                  {marked(description)}
                 </p>
               </div>
             </div>
