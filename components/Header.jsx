@@ -9,6 +9,7 @@ var Header = React.createClass({
     return (
         <div className="clearfix">
           <Navigation />
+          
           <div className="clearfix">
             <header className="md-col-12 sm-col py2 px1 bg-gray bg-cover bg-center backgroundImage center white">
               <h1 className="h1 h0-responsive caps mt4 mb0 regular">Hi! I am Domenico!</h1>
