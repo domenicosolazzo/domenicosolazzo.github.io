@@ -6,8 +6,8 @@ body{
 :root {
   --font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
-header nav{
-    color: #444;
+header.backgroundImage{
+  background-image: url("https://d262ilb51hltx0.cloudfront.net/max/2000/1*DZwdGMaeu-rvTroJYui6Uw.jpeg");
 }
 
 .section-title{

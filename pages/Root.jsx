@@ -19,10 +19,12 @@ var Root = React.createClass({
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
         </head>
         <body>
+          <div className="clearfix">
+            <Header />
+          </div>
           <div className="container">
             <div className="clearfix">
             </div>
-            <Header />
             <RouteHandler {...this.props} />
           </div>
 
