@@ -18,7 +18,7 @@ var Root = React.createClass({
           <link rel="stylesheet" href="../vendors/animatecss/animate.min.css" />
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
         </head>
-        <body className="p2">
+        <body>
           <div className="container">
             <div className="clearfix">
             </div>
