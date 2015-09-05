@@ -22,9 +22,7 @@ var Root = React.createClass({
           <div className="clearfix">
             <Header />
           </div>
-          <div className="container">
-            <div className="clearfix">
-            </div>
+          <div className="clearfix page-body">
             <RouteHandler {...this.props} />
           </div>
 

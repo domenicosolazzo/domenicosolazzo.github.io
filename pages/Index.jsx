@@ -1,33 +1,12 @@
 var React = require('react');
 var FontAwesome = require('react-fontawesome');
+var Section = require('../components/Section.jsx');
 
 var Index = React.createClass({
   render: function(){
     return (
       <main>
-        <section id="index-title" className="clearfix border-none">
-          <div className="col col-12">
-            <h1 className="animated rubberBand center">
-              Hi, I am Domenico Solazzo!
-            </h1>
-          </div>
-        </section>
-        <section id="index-code" className="clearfix border-top">
-          <div className="clearfix border-none section-title">
-            <div className="col col-12">
-              <h3 className="animated bounceInLeft center">Code</h3>
-            </div>
-          </div>
-          <div className="clearfix border-none section-description">
-            <div className="col col-12">
-              <p>
-                I love coding and feel free to check my <a className="action" href="https://github.com/domenicosolazzo" target="_blank">Github</a> account.
-                <br /><br />
-                I am always learning but nowadays, I often use Python, Javascript and Swift.
-              </p>
-            </div>
-          </div>
-        </section>
+        <Section title="Code"/>
         <section id="index-design" className="clearfix border-top">
           <div className="clearfix border-none section-title">
             <div className="col col-12">
