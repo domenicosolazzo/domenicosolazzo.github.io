@@ -27,7 +27,7 @@ header.backgroundImage{
   border-radius: 50%;
 }
 
-.action{
+p a{
   background-color: #ea4c89;
   color: #fff;
   border: none;
@@ -42,7 +42,7 @@ header.backgroundImage{
   border-radius: 4px;
 }
 
-a.action:hover{
+p a:hover{
   background-color: #D3447B;
 }
 

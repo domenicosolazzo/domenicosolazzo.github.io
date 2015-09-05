@@ -1,7 +1,7 @@
 var React = require('react');
 var marked = require('react-marked');
 
-var description = "I love coding and feel free to check my [Github action](https://github.com/domenicosolazzo) account. I am always learning but nowadays, I often use Python, Javascript and Swift.";
+var description = "I love coding and feel free to check my [Github](https://github.com/domenicosolazzo) account. I am always learning but nowadays, I often use Python, Javascript and Swift.";
 /*
 
 <br /><br />
