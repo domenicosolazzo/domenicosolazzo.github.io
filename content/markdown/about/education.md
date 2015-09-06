@@ -1,0 +1,32 @@
+- **Master of Science in Software Development and Data Mining**
+  - Year: 2009
+  - University: Aalborg Universitet
+  - Location: Aalborg, Denmark
+  - Thesis: **SubClassifier - Automatic Text Categorization of patents using Subgroup Discovery**
+     - Summary: The thesis involved a study on the automatic categorization of WIPO patents taking into consideration descriptive data mining techniques, such as Subgroup Discovery.
+  - Main courses:
+    - Business Intelligence
+    - Computer Supported Cooperative Work (CSCW)
+    - Structural Computing
+    - Fuzzy Logic
+    - Information Retrieval
+    - Computer Vision
+    - Virtual Reality
+    - Semantic Web
+    - Machine Learning
+
+- **Bachelor of Science in Computer Networks and Security**
+  - Year: 2007
+  - University: University of Torino
+  - Location: Torino, Italy
+  - Thesis: **Centro Unico Prenotazioni (C.U.P.)**
+     - Summary: The thesis covered the analysis and implementation of an online appointment booking service that could be used in hospitals and clinics in the North of Italy.
+  - Main courses:
+    - Programming
+    - Databases
+    - Computer networks
+    - Operanting Systems
+    - Network Security
+    - Algorithms
+    - Artificial Intelligence
+    - SNMP
