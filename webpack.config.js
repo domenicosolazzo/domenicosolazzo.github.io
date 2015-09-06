@@ -21,7 +21,6 @@ module.exports = {
   plugins: [
     new StaticSiteGeneratorPlugin('bundle.js', data.routes, data)
   ],
-
   cssnext: {
     compress: true,
     features: {

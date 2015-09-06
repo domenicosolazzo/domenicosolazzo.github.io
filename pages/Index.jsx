@@ -6,22 +6,10 @@ var Index = React.createClass({
   render: function(){
     return (
       <main>
-        <Section title="Code"/>
+        <Section title="Code" file="../content/home/code.md"/>
+        <Section title="Design" file="../content/home/design.md" />
         <section id="index-design" className="clearfix border-top">
-          <div className="clearfix border-none section-title">
-            <div className="col col-12">
-              <h3 className="animated bounceInRight center">Design</h3>
-            </div>
-          </div>
-          <div className="clearfix border-none section-description">
-            <div className="col col-12">
-              <p>
-                In my spare time, I like to learn about design.
-                I am really far for being proficient at it but below you can find some
-                of my current works. If you like what you see and you have a Dribbble invite, please invite me!
-              </p>
-            </div>
-          </div>
+
           <div className="clearfix border-none">
 
             <div className="col col-3 design-container">
