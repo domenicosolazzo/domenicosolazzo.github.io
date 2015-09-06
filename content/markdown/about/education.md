@@ -15,6 +15,7 @@
     - Semantic Web
     - Machine Learning
 
+
 - **Bachelor of Science in Computer Networks and Security**
   - Year: 2007
   - University: University of Torino
