@@ -2,6 +2,7 @@ var React = require('react');
 var marked = require('react-marked');
 var fs = require('fs');
 
+
 var Section = React.createClass({
   getInitialState: function(){
       return {
@@ -11,8 +12,8 @@ var Section = React.createClass({
   },
 
   readContent: function(callback){
-    console.log(fs);
-    return true;
+     var r = require(this.props.file);
+     console.log("file", r);
   },
   render: function () {
     var a = this.readContent;

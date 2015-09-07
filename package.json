@@ -25,6 +25,7 @@
   "homepage": "https://github.com/domenicosolazzo/domenicosolazzo.github.io#readme",
   "dependencies": {
     "ease-functions": "0.0.1",
+    "markdown-loader": "^0.1.7",
     "react-3d-carousel": "0.0.6",
     "react-fontawesome": "^0.3.2",
     "react-loading": "0.0.7",
