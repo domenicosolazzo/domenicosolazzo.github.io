@@ -1,6 +1,5 @@
 var React = require('react');
 var marked = require('react-marked');
-var fs = require('fs');
 
 
 var Section = React.createClass({
@@ -12,12 +11,11 @@ var Section = React.createClass({
   },
 
   readContent: function(callback){
-     var r = require(this.props.file);
-     console.log("file", r);
+     var html = require("html!markdown!./content/home/code.md");
+     console.log("Html", html);
   },
   render: function () {
-    var a = this.readContent;
-    console.log("aaaa", a());
+    var a = this.readContent();
 
 
     return (
