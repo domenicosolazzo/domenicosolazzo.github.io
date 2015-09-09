@@ -9,14 +9,18 @@ var Section = React.createClass({
         "description": "",
       };
   },
+  componentDidMount: function(){
+      this.readContent();
+  },
 
   readContent: function(callback){
-     var html = require("html!markdown!./content/home/code.md");
-     console.log("Html", html);
+     var description = require("../content/markdown/home/code.md");
+     this.setState({'description': description});
+  },
+  getContent: function(){
+    return {__html:this.state.description};
   },
   render: function () {
-    var a = this.readContent();
-
 
     return (
         <div className="clearfix">
@@ -24,14 +28,13 @@ var Section = React.createClass({
             <div className="clearfix border-none section-title">
               <div className="col col-12">
                 <h3 className="animated bounceInLeft center">
-                  {this.state.title}
+                  {this.props.title}
                 </h3>
               </div>
             </div>
             <div className="container clearfix border-none section-description">
               <div className="col col-12">
-                <p>
-                  {this.state.description}
+                <p dangerouslySetInnerHTML={this.getContent()}>
                 </p>
               </div>
             </div>
