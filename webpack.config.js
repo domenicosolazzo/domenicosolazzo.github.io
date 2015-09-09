@@ -15,8 +15,8 @@ module.exports = {
     loaders: [
       { test: /\.jsx$/, loader: 'jsx-loader' },
       { test: /\.css/, loader: 'css-loader!cssnext-loader' },
-      { test: /\.md/, loader: 'file' },
-    //  { test: /\.md$/, loader: "html!markdown?context=./content!/" },
+      //{ test: /\.md/, loader: 'file-loader' },
+      { test: /\.md$/, loader: "html!markdown" },
     ]
   },
 
