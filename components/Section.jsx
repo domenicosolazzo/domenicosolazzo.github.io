@@ -14,14 +14,21 @@ var Section = React.createClass({
   },
 
   readContent: function(callback){
-     var description = require("../content/markdown/home/code.md");
+     var description = "";
+     switch(this.props.type){
+       case "home-code":
+         description = require("../content/markdown/home/code.md");
+       break;
+       case "home-design":
+        description = require("../content/markdown/home/design.md");
+       break;
+     }
      this.setState({'description': description});
   },
   getContent: function(){
     return {__html:this.state.description};
   },
   render: function () {
-
     return (
         <div className="clearfix">
           <section className="clearfix border-top">
