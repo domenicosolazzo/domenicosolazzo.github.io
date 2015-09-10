@@ -23570,8 +23570,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var DefaultRoute = Router.DefaultRoute;
 	var Root = __webpack_require__(197);
 	var Index = __webpack_require__(203);
-	var About = __webpack_require__(207);
-	var Contact = __webpack_require__(208);
+	var About = __webpack_require__(209);
+	var Contact = __webpack_require__(210);
 
 	var Routes = (
 	  React.createElement(Route, {handler: Root, path: "/"}, 
@@ -23798,22 +23798,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  render: function(){
 	    return (
 	      React.createElement("main", null, 
-	        React.createElement(Section, {title: "Code"}), 
+	        React.createElement(Section, {title: "Code", type: "home-code"}), 
+	        React.createElement(Section, {title: "Design", type: "home-design"}), 
 	        React.createElement("section", {id: "index-design", className: "clearfix border-top"}, 
-	          React.createElement("div", {className: "clearfix border-none section-title"}, 
-	            React.createElement("div", {className: "col col-12"}, 
-	              React.createElement("h3", {className: "animated bounceInRight center"}, "Design")
-	            )
-	          ), 
-	          React.createElement("div", {className: "clearfix border-none section-description"}, 
-	            React.createElement("div", {className: "col col-12"}, 
-	              React.createElement("p", null, 
-	                "In my spare time, I like to learn about design." + " " +
-	                "I am really far for being proficient at it but below you can find some" + " " +
-	                "of my current works. If you like what you see and you have a Dribbble invite, please invite me!"
-	              )
-	            )
-	          ), 
+
 	          React.createElement("div", {className: "clearfix border-none"}, 
 
 	            React.createElement("div", {className: "col col-3 design-container"}, 
@@ -24011,26 +23999,47 @@ return /******/ (function(modules) { // webpackBootstrap
 	var React = __webpack_require__(1);
 	var marked = __webpack_require__(206);
 
-	var description = "I love coding and feel free to check my [Github](https://github.com/domenicosolazzo) account. I am always learning but nowadays, I often use Python, Javascript and Swift.";
-	/*
 
-	<br /><br />
-
-	*/
 	var Section = React.createClass({displayName: "Section",
+	  getInitialState: function(){
+	      return {
+	        "title":"",
+	        "description": "",
+	      };
+	  },
+	  componentDidMount: function(){
+	      this.readContent();
+	  },
+
+	  readContent: function(callback){
+	     var description = "";
+	     switch(this.props.type){
+	       case "home-code":
+	         description = __webpack_require__(207);
+	       break;
+	       case "home-design":
+	        description = __webpack_require__(208);
+	       break;
+	     }
+	     this.setState({'description': description});
+	  },
+	  getContent: function(){
+	    return {__html:this.state.description};
+	  },
 	  render: function () {
 	    return (
 	        React.createElement("div", {className: "clearfix"}, 
-	          React.createElement("section", {id: "index-code", className: "clearfix border-top"}, 
+	          React.createElement("section", {className: "clearfix border-top"}, 
 	            React.createElement("div", {className: "clearfix border-none section-title"}, 
 	              React.createElement("div", {className: "col col-12"}, 
-	                React.createElement("h3", {className: "animated bounceInLeft center"}, this.props.title)
+	                React.createElement("h3", {className: "animated bounceInLeft center"}, 
+	                  this.props.title
+	                )
 	              )
 	            ), 
 	            React.createElement("div", {className: "container clearfix border-none section-description"}, 
 	              React.createElement("div", {className: "col col-12"}, 
-	                React.createElement("p", null, 
-	                  marked(description)
+	                React.createElement("p", {dangerouslySetInnerHTML: this.getContent()}
 	                )
 	              )
 	            )
@@ -25302,6 +25311,18 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 207 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>I love coding and feel free to check my <a href=\"https://www.github.com/domenicosolazzo\">Github</a> account.\nI am always learning but nowadays, I often use <strong>Python</strong>, <strong>Javascript</strong> and <strong>Swift</strong>.</p>\n";
+
+/***/ },
+/* 208 */
+/***/ function(module, exports) {
+
+	module.exports = "<p>In my spare time, I like to learn about design.\nI am really far for being proficient at it but below you can find some of my current works.</p>\n<p>If you like what you see and you have a Dribbble invite, please invite me!</p>\n";
+
+/***/ },
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -25436,7 +25457,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 208 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
