@@ -6,8 +6,8 @@ var Index = React.createClass({
   render: function(){
     return (
       <main>
-        <Section title="Code" type="home-code"/>
-        <Section title="Design" type="home-design" />
+        <Section title="Code" type="code"/>
+        <Section title="Design" type="design" />
         <section id="index-design" className="clearfix border-top">
 
           <div className="clearfix border-none">

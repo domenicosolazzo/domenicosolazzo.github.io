@@ -16,11 +16,26 @@ var Section = React.createClass({
   readContent: function(callback){
      var description = "";
      switch(this.props.type){
-       case "home-code":
+       case "code":
          description = require("../content/markdown/home/code.md");
        break;
-       case "home-design":
+       case "design":
         description = require("../content/markdown/home/design.md");
+       break;
+       case "social":
+        description = require("../content/markdown/contact/social.md");
+       break;
+       case "awards":
+        description = require("../content/markdown/about/awards.md");
+       break;
+       case "education":
+        description = require("../content/markdown/about/education.md");
+       break;
+       case "interests":
+        description = require("../content/markdown/about/interests.md");
+       break;
+       case "work":
+        description = require("../content/markdown/about/work.md");
        break;
      }
      this.setState({'description': description});
