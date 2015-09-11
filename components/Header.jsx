@@ -5,7 +5,8 @@ var Header = React.createClass({
   getDefaultProps: function(){
     return {
       title: "",
-      description: ""
+      description: "",
+      email:"abc@example.com"
     };
   },
   render: function () {
@@ -16,7 +17,7 @@ var Header = React.createClass({
               <h1 className="h1 h0-responsive caps mt4 mb0 regular">{this.props.title}</h1>
               <p className="h3">{this.props.description}</p>
               <div className="h3 mb4">
-                <Gravatar />
+                <Gravatar email={this.props.email} />
               </div>
             </header>
           </div>
