@@ -1,12 +1,11 @@
 var React = require('react');
-var Navigation = require('./Navigation.jsx');
 var Gravatar = require('./Gravatar.jsx');
 
 var Header = React.createClass({
   render: function () {
     return (
         <div className="clearfix">
-          <Navigation />
+
 
           <div className="clearfix">
             <header className="md-col-12 sm-col py2 px1 bg-gray bg-cover bg-center backgroundImage center white">

@@ -1,6 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
+
+var Navigation = require('../components/Navigation.jsx');
 var Header = require('../components/Header.jsx');
 var css = require('../css/base.css');
 
@@ -20,6 +22,7 @@ var Root = React.createClass({
         </head>
         <body>
           <div className="clearfix">
+            <Navigation />
             <Header />
           </div>
           <div className="clearfix page-body">
