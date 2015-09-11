@@ -5,8 +5,27 @@ var RouteHandler = Router.RouteHandler;
 var Navigation = require('../components/Navigation.jsx');
 var Header = require('../components/Header.jsx');
 var css = require('../css/base.css');
+var info = require("../config/info");
 
 var Root = React.createClass({
+  componentDidMount: function(){
+    this.setState({
+      title: info["title"],
+      description: info["description"],
+      author: info["author"],
+      email: info["email"],
+      backgroundImage: info["backgroundImage"]
+    })
+  },
+  getInitialState: function(){
+    return {
+      "title":"",
+      "description": "",
+      "author": "",
+      "email": "",
+      "backgroundImage": null
+    };
+  },
   render: function(){
     var initialProps = {
       __html: safeStringify(this.props)
@@ -23,7 +42,10 @@ var Root = React.createClass({
         <body>
           <div className="clearfix">
             <Navigation />
-            <Header title="Hi! I am Domenico!" description="Programmer, data scientist and entrepreneur" email="solazzo.domenico@gmail.com" image="http://www.bugbog.com/images/galleries/chile_pictures/1000/atacama-pool.jpg"/>
+            <Header title={this.state.title}
+                    description={this.state.description}
+                    email={this.state.email}
+                    image={this.state.backgroundImage} />
           </div>
           <div className="clearfix page-body">
             <RouteHandler {...this.props} />
