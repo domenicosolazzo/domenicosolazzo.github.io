@@ -23569,9 +23569,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Route = Router.Route;
 	var DefaultRoute = Router.DefaultRoute;
 	var Root = __webpack_require__(197);
-	var Index = __webpack_require__(207);
-	var About = __webpack_require__(218);
-	var Contact = __webpack_require__(219);
+	var Index = __webpack_require__(208);
+	var About = __webpack_require__(219);
+	var Contact = __webpack_require__(220);
 
 	var Routes = (
 	  React.createElement(Route, {handler: Root, path: "/"}, 
@@ -23595,8 +23595,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Navigation = __webpack_require__(198);
 	var Header = __webpack_require__(199);
 	var css = __webpack_require__(205);
+	var info = __webpack_require__(207);
 
 	var Root = React.createClass({displayName: "Root",
+	  componentDidMount: function(){
+	    this.setState({
+	      title: info["title"],
+	      description: info["description"],
+	      author: info["author"],
+	      email: info["email"],
+	      backgroundImage: info["backgroundImage"]
+	    })
+	  },
+	  getInitialState: function(){
+	    return {
+	      "title":"",
+	      "description": "",
+	      "author": "",
+	      "email": "",
+	      "backgroundImage": null
+	    };
+	  },
 	  render: function(){
 	    var initialProps = {
 	      __html: safeStringify(this.props)
@@ -23613,7 +23632,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        React.createElement("body", null, 
 	          React.createElement("div", {className: "clearfix"}, 
 	            React.createElement(Navigation, null), 
-	            React.createElement(Header, {title: "Hi! I am Domenico!", description: "Programmer, data scientist and entrepreneur", email: "solazzo.domenico@gmail.com", image: "http://www.bugbog.com/images/galleries/chile_pictures/1000/atacama-pool.jpg"})
+	            React.createElement(Header, {title: this.state.title, 
+	                    description: this.state.description, 
+	                    email: this.state.email, 
+	                    image: this.state.backgroundImage})
 	          ), 
 	          React.createElement("div", {className: "clearfix page-body"}, 
 	            React.createElement(RouteHandler, React.__spread({},  this.props))
@@ -24154,11 +24176,24 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 207 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  title: "Hi, I am Domenico",
+	  description: "",
+	  author: "Domenico Solazzo",
+	  email: "solazzo.domenico@gmail.com",
+	  backgroundImage: "http://www.welcomepiemonte.it/wp-content/uploads/2012/07/Cattedrale-Asti.jpg"
+	};
+
+
+/***/ },
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var FontAwesome = __webpack_require__(208);
-	var Section = __webpack_require__(209);
+	var FontAwesome = __webpack_require__(209);
+	var Section = __webpack_require__(210);
 
 	var Index = React.createClass({displayName: "Index",
 	  render: function(){
@@ -24254,7 +24289,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 208 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24359,11 +24394,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 209 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var marked = __webpack_require__(210);
+	var marked = __webpack_require__(211);
 
 
 	var Section = React.createClass({displayName: "Section",
@@ -24381,25 +24416,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	     var description = "";
 	     switch(this.props.type){
 	       case "code":
-	         description = __webpack_require__(211);
+	         description = __webpack_require__(212);
 	       break;
 	       case "design":
-	        description = __webpack_require__(212);
-	       break;
-	       case "social":
 	        description = __webpack_require__(213);
 	       break;
-	       case "awards":
+	       case "social":
 	        description = __webpack_require__(214);
 	       break;
-	       case "education":
+	       case "awards":
 	        description = __webpack_require__(215);
 	       break;
-	       case "interests":
+	       case "education":
 	        description = __webpack_require__(216);
 	       break;
-	       case "work":
+	       case "interests":
 	        description = __webpack_require__(217);
+	       break;
+	       case "work":
+	        description = __webpack_require__(218);
 	       break;
 	     }
 	     this.setState({'description': description});
@@ -24434,7 +24469,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 210 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -25691,53 +25726,53 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 211 */
+/* 212 */
 /***/ function(module, exports) {
 
 	module.exports = "<p>I love coding and feel free to check my <a href=\"https://www.github.com/domenicosolazzo\">Github</a> account.\nI am always learning but nowadays, I often use <strong>Python</strong>, <strong>Javascript</strong> and <strong>Swift</strong>.</p>\n";
 
 /***/ },
-/* 212 */
+/* 213 */
 /***/ function(module, exports) {
 
 	module.exports = "<p>In my spare time, I like to learn about design.\nI am really far for being proficient at it but below you can find some of my current works.</p>\n<p>If you like what you see and you have a Dribbble invite, please invite me!</p>\n";
 
 /***/ },
-/* 213 */
+/* 214 */
 /***/ function(module, exports) {
 
 	module.exports = "";
 
 /***/ },
-/* 214 */
+/* 215 */
 /***/ function(module, exports) {
 
 	module.exports = "<ul>\n<li>Meyu, Runner-up at Oslo Health Challenge<ul>\n<li>Location: Oslo, Norway</li>\n<li>Description: A helper mobile app for young patients with cancer.</li>\n</ul>\n</li>\n</ul>\n";
 
 /***/ },
-/* 215 */
+/* 216 */
 /***/ function(module, exports) {
 
 	module.exports = "<ul>\n<li><strong>Master of Science in Software Development and Data Mining</strong><ul>\n<li>Year: 2009</li>\n<li>University: Aalborg Universitet</li>\n<li>Location: Aalborg, Denmark</li>\n<li>Thesis: <strong>SubClassifier - Automatic Text Categorization of patents using Subgroup Discovery</strong><ul>\n<li>Summary: The thesis involved a study on the automatic categorization of WIPO patents taking into consideration descriptive data mining techniques, such as Subgroup Discovery.</li>\n</ul>\n</li>\n<li>Main courses:<ul>\n<li>Business Intelligence</li>\n<li>Computer Supported Cooperative Work (CSCW)</li>\n<li>Structural Computing</li>\n<li>Fuzzy Logic</li>\n<li>Information Retrieval</li>\n<li>Computer Vision</li>\n<li>Virtual Reality</li>\n<li>Semantic Web</li>\n<li>Machine Learning</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n<ul>\n<li><strong>Bachelor of Science in Computer Networks and Security</strong><ul>\n<li>Year: 2007</li>\n<li>University: University of Torino</li>\n<li>Location: Torino, Italy</li>\n<li>Thesis: <strong>Centro Unico Prenotazioni (C.U.P.)</strong><ul>\n<li>Summary: The thesis covered the analysis and implementation of an online appointment booking service that could be used in hospitals and clinics in the North of Italy.</li>\n</ul>\n</li>\n<li>Main courses:<ul>\n<li>Programming</li>\n<li>Databases</li>\n<li>Computer networks</li>\n<li>Operanting Systems</li>\n<li>Network Security</li>\n<li>Algorithms</li>\n<li>Artificial Intelligence</li>\n<li>SNMP</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n";
 
 /***/ },
-/* 216 */
+/* 217 */
 /***/ function(module, exports) {
 
 	module.exports = "<p>Startup weekend organizer in 2012 and 2013. Oslo, Norway </p>\n<p>Training regularly.</p>\n<p>Jazz lover.</p>\n<p>Interested in Stoicism.</p>\n";
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports) {
 
 	module.exports = "<ul>\n<li><p><strong>Full stack developer</strong></p>\n<ul>\n<li>Location: Oslo, Norway</li>\n<li>Period: February 2015 - Present</li>\n<li>Description: I am a full stack developer working for a news agency in Oslo.</li>\n</ul>\n</li>\n<li><p><strong>Senior Developer</strong></p>\n<ul>\n<li>Location: Oslo, Norway</li>\n<li>Period: November 2011 - January 2015</li>\n<li>Description: I am a full stack developer for the digital asset management platform, working on enhancing the API modules and a real time analytic system for product data.\nI am the main responsible for the software architecture and integration of the business services running across the company departments including financial, e-commerce and licensing data.</li>\n</ul>\n</li>\n</ul>\n<ul>\n<li><p><strong>Senior Developer</strong></p>\n<ul>\n<li>Location: Oslo, Norway</li>\n<li>Period: February 2011 - October 2015</li>\n<li>Description: Analysis and implementation of modules of a semantic content managementsystem. I was also working with customer implementations of the content management system.</li>\n</ul>\n</li>\n<li><p><strong>Senior Developer</strong></p>\n<ul>\n<li>Location: Oslo, Norway</li>\n<li>Period: May 2010 - January 2011</li>\n<li>Description: Analysis and implementation of SOA modules for an E-Learning platform</li>\n</ul>\n</li>\n<li><p><strong>Team leader / Lead Developer</strong></p>\n<ul>\n<li>Location: Esbjerg, Denmark</li>\n<li>Period: February 2008 - January 2010</li>\n<li>Description: Team leader of the software team that was developing a platform for creating data warehouse on demand.</li>\n</ul>\n</li>\n<li><p><strong>Developer</strong></p>\n<ul>\n<li>Location: Asti, Italy</li>\n<li>Period: May 2005 - January 2007</li>\n<li>Description: Working on Hospital Information System. I was developing and maintaining an Electronical Medical Record (EMR)</li>\n</ul>\n</li>\n<li><p><strong>Junior Developer</strong></p>\n<ul>\n<li>Location: Asti, Italy</li>\n<li>Period: Junuary 2004 - June 2005</li>\n<li>Description: Developing an Electronical Patient Record (EPR) as a module of a large Hospital Information System.</li>\n</ul>\n</li>\n</ul>\n";
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var Section = __webpack_require__(209);
+	var Section = __webpack_require__(210);
 
 	var About = React.createClass({displayName: "About",
 	  render: function(){
@@ -25763,7 +25798,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
