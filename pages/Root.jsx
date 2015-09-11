@@ -23,7 +23,7 @@ var Root = React.createClass({
         <body>
           <div className="clearfix">
             <Navigation />
-            <Header />
+            <Header title="Hi! I am Domenico!" description="Programmer, data scientist and entrepreneur"/>
           </div>
           <div className="clearfix page-body">
             <RouteHandler {...this.props} />
