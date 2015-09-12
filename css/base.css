@@ -6,6 +6,14 @@ body{
 :root {
   --font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
+/**
+Remove btn focus
+*/
+.btn:focus{
+  outline: 0;
+  border-color: #F4F4F4;
+  box-shadow: none;
+}
 header.backgroundImage{
   background-image: url("https://d262ilb51hltx0.cloudfront.net/max/2000/1*DZwdGMaeu-rvTroJYui6Uw.jpeg");
 }
