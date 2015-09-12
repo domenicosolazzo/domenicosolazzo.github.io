@@ -1,12 +1,15 @@
 var React = require('react');
 var FontAwesome = require('react-fontawesome');
 var Section = require('../components/Section.jsx');
+var Logo = require('../components/Logo.jsx');
 
 var Index = React.createClass({
   render: function(){
     return (
       <main>
-        <Section title="Code" type="code"/>
+        <Section title="Code" type="code">
+          
+        </Section>
         <Section title="Design" type="design" />
         <section id="index-design" className="clearfix border-top">
 

@@ -44,6 +44,7 @@ var Section = React.createClass({
     return {__html:this.state.description};
   },
   render: function () {
+    var content = this.getContent();
     return (
         <div className="clearfix">
           <section className="clearfix border-top">
@@ -56,8 +57,9 @@ var Section = React.createClass({
             </div>
             <div className="container clearfix border-none section-description">
               <div className="col col-12">
-                <p dangerouslySetInnerHTML={this.getContent()}>
+                <p dangerouslySetInnerHTML={content}>
                 </p>
+                {this.props.children}
               </div>
             </div>
           </section>
