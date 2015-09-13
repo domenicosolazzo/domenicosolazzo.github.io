@@ -1,9 +1,11 @@
 var React = require('react');
 
-var DesignItem = React.createClass({
+var ProgrammingLanguageItem = React.createClass({
   getDefaultProps: function(){
     return {
-      name: "unknown"
+      name: "unknown",
+      url: "",
+      years:""
     }
   },
   getClassName: function(){
@@ -16,7 +18,7 @@ var DesignItem = React.createClass({
 
   render: function(){
     var class_name = this.getClassName();
-    
+
     return (
        <div>
          <div className={class_name} name={this.props.name}></div>
@@ -25,3 +27,5 @@ var DesignItem = React.createClass({
 
   }
 });
+
+module.exports = ProgrammingLanguageItem;

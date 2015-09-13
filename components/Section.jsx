@@ -1,5 +1,6 @@
 var React = require('react');
 var marked = require('react-marked');
+var SectionCode = require('./SectionCode.jsx');
 
 
 var Section = React.createClass({
@@ -43,7 +44,16 @@ var Section = React.createClass({
   getContent: function(){
     return {__html:this.state.description};
   },
+  getSectionContent: function(){
+
+  },
   render: function () {
+    if (this.props.type === "code"){
+      console.log("here", this.props.type);
+        return (
+          <SectionCode type="code" title="Code" type="code" languages={["python", "swift", "javascript"]} />
+        );
+    }
     var content = this.getContent();
     return (
         <div className="clearfix">
