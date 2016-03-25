@@ -1,3 +1,0 @@
-- Meyu, Runner-up at Oslo Health Challenge
-  - Location: Oslo, Norway
-  - Description: A helper mobile app for young patients with cancer.
