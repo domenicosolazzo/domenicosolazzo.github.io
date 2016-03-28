@@ -1,0 +1,10 @@
+---
+contentdir: "content"
+layoutdir: "layouts"
+publishdir: "public"
+indexes:
+  category: "categories"
+baseurl: "http://domenicosolazzo.github.io/"
+title: "Domenico"
+canonifyurls: true
+...
