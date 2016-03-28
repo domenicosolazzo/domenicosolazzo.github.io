@@ -1,7 +1,7 @@
 # Site settings
 baseurl = "http://localhost:1313/"
 languageCode = "en-us"
-title = "Domenico's blog"
+title = "Domenico's site"
 theme = "hugo-artists-theme"
 
 [params]
@@ -12,7 +12,7 @@ theme = "hugo-artists-theme"
 	# To provide some metadata for search engines feel free to add a few
     # information about you and your website.
 	name = "Domenico"
-	description = "Your description"
+	description = "Software developer with entrepreneurial spirit"
 
 	# Since this template is static, the contact form uses www.formspree.io as a
 	# proxy. The form makes a POST request to their servers to send the actual
@@ -25,7 +25,7 @@ theme = "hugo-artists-theme"
     # - send a dummy email yourself to confirm your account
     # - click the confirm link in the email from www.formspree.io
     # - you're done. Happy mailing!
-	email = "your@email.com"
+	email = "me@stooic.com"
 
 
 	# Header an navigation
@@ -34,8 +34,8 @@ theme = "hugo-artists-theme"
 	# Do the same with the logo ('logo.svg').
 	# But keep the original filename!
 	[params.header]
-		title = "Artists Theme"
-		shortBio = "Thinker // Designer // YouTuber"
+		title = "Domenico"
+		shortBio = "Programmer // Data Scientist // Entrepreneur"
 
 
 	# About section
@@ -43,7 +43,7 @@ theme = "hugo-artists-theme"
 	# Replace the 'avatar.jpg' under 'static/img' with your own image.
 	[params.about]
 		title = "About me"
-		bio = "**Travis specializes in making things** for human people. Most of the things he makes are [digital interfaces](//travisneilson.com/), but he also puts effort into crafting [next-level beats](//soundcloud.com/travis-neilson) and [YouTube videos](//youtube.com/user/devtipsfordesigners) about making codes happen."
+		bio = "**Domenico specializes in making things** for human people. Most of the things he makes are software products, but he also puts effort into design and machine learning."
 
 		[[params.about.skills]]
 			name = "Communication"
@@ -51,7 +51,7 @@ theme = "hugo-artists-theme"
 
 		[[params.about.skills]]
 			name = "Organization"
-			value = 7
+			value = 8
 
 		[[params.about.skills]]
 			name = "Learning"
@@ -63,19 +63,19 @@ theme = "hugo-artists-theme"
 
 		[[params.about.skills]]
 			name = "Planning"
-			value = 7
-
-		[[params.about.skills]]
-			name = "Visual Design"
-			value = 5
-
-		[[params.about.skills]]
-			name = "UX Design"
 			value = 8
 
 		[[params.about.skills]]
-			name = "Programming"
+			name = "Visual Design"
 			value = 6
+
+		[[params.about.skills]]
+			name = "UX Design"
+			value = 2
+
+		[[params.about.skills]]
+			name = "Programming"
+			value = 10
 
 	# Contact secion
 	[params.contact]
@@ -86,32 +86,20 @@ theme = "hugo-artists-theme"
 		# 'youtube' / 'instagram' / 'dribbble' / 'behance' / 'soundcloud' / 'vine'
 		[[params.contact.social]]
 			icon = "twitter"
-			link = "//twitter.com/devtipsshow"
+			link = "//twitter.com/domenicosolazzo"
 
 		[[params.contact.social]]
-			icon = "dribbble"
-			link = "//dribbble.com/travisneilson"
-
-		[[params.contact.social]]
-			icon = "behance"
-			link = "//www.behance.net/travisneilson"
-
-		[[params.contact.social]]
-			icon = "youtube"
-			link = "//www.youtube.com/DevTipsForDesigners"
-
-		[[params.contact.social]]
-			icon = "linkedin"
-			link = "//www.linkedin.com/in/travisneilson"
+			icon = "github"
+			link = "//www.github.com/domenicosolazzo"
 
 
 	[params.form]
 		title = "Let's work together"
 		# Form fields
-		name = "Your Name"
-		email = "Your Email"
+		name = "Name"
+		email = "Email"
 		message = "Tell me about your project"
-		buttonText = "Send"
+		buttonText = "Ping me"
 
 
 	[params.footer]
